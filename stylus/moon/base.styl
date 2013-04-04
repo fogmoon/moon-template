@@ -1,39 +1,70 @@
-@import 'colors'
 @import 'position'
+@import 'colors'
+@import 'responsive'
 
-centeredPad(wid = main-width, pad = main-pad)
-	width: wid
-	padding 0 pad
+
+/////////////////////////////////////////////////////////
+//			                Base                       //
+/////////////////////////////////////////////////////////
 	
 a
 	color link_color
 
 body
-	centeredPad()
+	background-color background_color
 
-	> header
-		+ nav
-			> ul
-				display block
-				> li
-					display inline-block
-					min-width (main-width / 10)
-					height top-nav-height
-					vertical-align middle
-					line-height top-nav-height
-					text-align center
-					margin (main-width / 100)
 
-					
+/////////////////////////////////////////////////////////
+//			              Buttons                      //
+/////////////////////////////////////////////////////////
 
-	header
-		margin (elt-margin/2) 0
-		padding (elt-margin/2) (elt-margin)
+button[data-button="push"]
+	background-color btn_bg
+	border-top 1px solid btn_top_bdr
+	border-left 3px solid btn_lft_bdr
+	border-bottom 5px solid btn_btm_bdr
+	border-right 3px solid btn_rig_bdr
+	border-radius 5px
+	color btn_text_clr
+	font-size 1.2em
+	font-weight bold
+	makeItMove(0.1s)
+
+	&:hover
+		background-color btn_bg_hover
+		border-top 1px solid btn_top_bdr
+		border-left 3px solid btn_lft_bdr
+		border-bottom 5px solid btn_btm_bdr
+		border-right 3px solid btn_rig_bdr
+
+	&:active
+		background-color btn_bg_hover
+		border-top 5px solid btn_top_bdr_prs
+		border-left 5px solid btn_lft_bdr_prs
+		border-bottom 1px solid btn_btm_bdr
+		border-right 1px solid btn_rig_bdr
+		box-shadow(inset -1px -1px 5px 0px btn_shadow_prs)
 		
-	> article
-		row(12)
-		
-	> footer
-		row(12)
-		display block
+button,
+button:hover,
+button:focus,
+button:visited,
+button:active
+	background-color btn_bg
+	border 1px solid btn_top_bdr
+	border-radius 3px
+	color btn_text_clr
+	font-size 1.2em
+	font-weight bold
+	makeItMove(0.1s)
+
+	&:hover
+		background-color btn_bg_hover
+		color btn_text_clr_hover
+		border 1px solid btn_rig_bdr
+
+	&:active
+		color btn_text_clr_prs
+		border 1px solid btn_text_clr
+		background-color btn_bg_prs
 		

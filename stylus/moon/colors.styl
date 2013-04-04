@@ -1,11 +1,54 @@
+@import 'functions'
+
 /////////////////////////////////////////////////////////
 //				The colors stylus file                 //
 /////////////////////////////////////////////////////////
 
-primary_color = #79b2e2 // lightBlue
-secondary_color = #333 
-background_color = #FFF // white
+primary_color 		= #79b2e2 // lightBlue
+secondary_color 	= #333 
+background_color 	= #FFF // white
 
-h1_color = saturate(primary_color,50%)
+h1_color 			= saturate(primary_color,50%)
 
-link_color = darken(saturate(primary_color,10%),20%)
+link_color 			= darken(saturate(primary_color,10%),20%)
+
+/////////////////////////////////////////////////////////
+//			     Button  (PUSH) colors                 //
+/////////////////////////////////////////////////////////
+
+
+btn_bg				= softize(background_color)
+
+// The main button border colors
+btn_top_bdr 		= hardize(background_color,20%)
+btn_rig_bdr 		= hardize(background_color,30%)
+btn_lft_bdr 		= hardize(background_color,10%)
+btn_btm_bdr 		= hardize(background_color,35%)
+
+// Text color
+btn_text_clr		= hardize(primary_color,10%)
+
+// -- On hover --
+btn_bg_hover		= softize(btn_bg)
+btn_text_clr_hover	= hardize(btn_text_clr,10%)
+
+// -- On press --
+btn_top_bdr_prs 	= hardize(background_color,20%)
+btn_lft_bdr_prs 	= hardize(background_color,20%)
+btn_shadow_prs		= transparize(invert(btn_bg_hover),0.15)
+btn_text_clr_prs	= hardize(btn_text_clr_hover,10%)
+btn_bg_prs			= hardize(btn_bg_hover,3%)
+
+
+
+
+/////////////////////////////////////////////////////////
+//	    	You whant to see the colors ?              //
+/////////////////////////////////////////////////////////
+
+/*
+
+body *
+	background rgba(50,0,0,0.05)
+
+*/

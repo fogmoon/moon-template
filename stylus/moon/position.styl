@@ -1,14 +1,39 @@
-@import 'colors'
+
+/////////////////////////////////////////////////////////
+//				 Base units parameters                 //
+/////////////////////////////////////////////////////////
 
 main-width = 80%
 main-pad = (100% - main-width) /2
 elt-margin = 10px
 top-nav-height = 50px
 
+
+/////////////////////////////////////////////////////////
+//				   Buttons parameters                  //
+/////////////////////////////////////////////////////////
+
+button_width = 80px
+button_height = 40px
+
+
+
+//////////////// -- Stop editing now -- /////////////////
+
+
+/////////////////////////////////////////////////////////
+//			             Functions                     //
+/////////////////////////////////////////////////////////
+
 centeredPad(wid = main-width, pad = main-pad)
 	width: wid
 	padding 0 pad
-	
+
+
+/////////////////////////////////////////////////////////
+//			                Base                       //
+/////////////////////////////////////////////////////////
+
 a
 	text-decoration initial
 
@@ -34,11 +59,35 @@ body
 		margin (elt-margin/2) 0
 		padding (elt-margin/2) (elt-margin)
 		
-	> article
-		row(12)
-		
+	> section
+		> article
+			> aside:only-of-type
+				float: left;
+				width: 20%;
+				margin-left: -25%;
+				font-size: 12px;
+				line-height: 1.8;
+			margin: 0 0 20px 0px;
+			
+		> article[data-aside="true"]
+			margin: 0 0 20px 20%;
+
 	> footer
-		row(12)
 		display block
 		
+
+/////////////////////////////////////////////////////////
+//			              Buttons                      //
+/////////////////////////////////////////////////////////
+
+
+// reset all the default browser parameters
+button
+	padding 3px 5px
+	margin 0
+	border none
+	min-width button_width
+	min-height button_height
+
+	
 

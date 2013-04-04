@@ -1,0 +1,33 @@
+/////////////////////////////////////////////////////////
+//			  The functions stylus file                //
+/////////////////////////////////////////////////////////
+
+softize(a_color,val=20%)
+	if light(a_color)
+		lighten(a_color,val)
+	else
+		darken(a_color,val)
+
+hardize(a_color,val=20%)
+	if light(a_color)
+		darken(a_color,val)
+	else
+		lighten(a_color,val)
+
+transparize(a_color,a_opacity)
+	rgba(red(a_color),green(a_color),blue(a_color),a_opacity)
+
+makeItMove(duration=0.5s, element=all, interpolation=ease, delay=0)
+	vendor('transition', element duration interpolation delay)
+
+vendor(prop, args)
+	-webkit-{prop} args
+	-moz-{prop} args
+	-o-{prop} args
+	{prop} args
+
+border-radius()
+	vendor('border-radius', arguments)
+
+box-shadow()
+	vendor('box-shadow', arguments)
