@@ -1,0 +1,34 @@
+@import "vendor/normalize.min.css";
+@import "vendor/initializer.css";
+
+a {
+  text-decoration: initial;
+  color: #3991dd;
+}
+body {
+  width: 80%;
+  padding: 0 10%;
+}
+body > header + nav > ul {
+  display: block;
+}
+body > header + nav > ul > li {
+  display: inline-block;
+  min-width: 8%;
+  height: 50px;
+  vertical-align: middle;
+  line-height: 50px;
+  text-align: center;
+  margin: 0.8%;
+}
+body header {
+  margin: 5px 0;
+  padding: 5px 10px;
+}
+body > footer {
+  display: block;
+}
+body {
+  font-family: 'Oxygen', sans-serif;
+  color: rgba(0,0,0,0.6);
+}

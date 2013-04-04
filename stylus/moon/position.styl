@@ -1,0 +1,44 @@
+@import 'colors'
+
+main-width = 80%
+main-pad = (100% - main-width) /2
+elt-margin = 10px
+top-nav-height = 50px
+
+centeredPad(wid = main-width, pad = main-pad)
+	width: wid
+	padding 0 pad
+	
+a
+	text-decoration initial
+
+body
+	centeredPad()
+
+	> header
+		+ nav
+			> ul
+				display block
+				> li
+					display inline-block
+					min-width (main-width / 10)
+					height top-nav-height
+					vertical-align middle
+					line-height top-nav-height
+					text-align center
+					margin (main-width / 100)
+
+					
+
+	header
+		margin (elt-margin/2) 0
+		padding (elt-margin/2) (elt-margin)
+		
+	> article
+		row(12)
+		
+	> footer
+		row(12)
+		display block
+		
+
