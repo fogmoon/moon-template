@@ -25,6 +25,7 @@ body header {
 }
 body > section > article {
   margin: 0 0 20px 0px;
+  display: inline-table;
 }
 body > section > article > aside:only-of-type {
   float: left;
@@ -39,12 +40,62 @@ body > section > article[data-aside="true"] {
 body > footer {
   display: block;
 }
-button {
-  padding: 3px 5px;
-  margin: 0;
-  border: none;
-  min-width: 80px;
-  min-height: 40px;
+button[data-button="push"] {
+  padding: 12px 6px;
+  font-size: 1em;
+  line-height: 0;
+}
+button,
+a[data-type="button"] {
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  font-size: 11px;
+  padding: 0 7px 0 7px;
+  margin: 0 7px 0 0;
+  text-align: center;
+  float: left;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  *zoom: 1;
+  *margin-left: 0.3em;
+}
+button:before,
+a[data-type="button"]:before,
+button:after,
+a[data-type="button"]:after {
+  display: tablecontent "";
+}
+button:after,
+a[data-type="button"]:after {
+  clear: both;
+}
+button:first-child,
+a[data-type="button"]:first-child {
+  *margin-left: 0;
+}
+button[data-size="small"],
+a[data-type="button"][data-size="small"] {
+  height: 18px;
+  line-height: 18px;
+  font-size: 9px;
+}
+button[data-size="big"],
+a[data-type="button"][data-size="big"] {
+  height: 32px;
+  line-height: 32px;
+  font-size: 16px;
+}
+button[data-size="huge"],
+a[data-type="button"][data-size="huge"] {
+  height: 48px;
+  line-height: 48px;
+  font-size: 22px;
 }
 @media all and (max-width: 640px) {
   body > header + nav > ul > li {
@@ -114,41 +165,42 @@ button[data-button="push"]:active {
   box-shadow: inset -1px -1px 5px 0px rgba(0,0,0,0.15);
 }
 button,
-button:hover,
-button:focus,
-button:visited,
-button:active {
-  background-color: #fff;
-  border: 1px solid #ccc;
+a[data-type="button"] {
+  font-weight: bold;
+  color: #474747;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+  border: solid 1px #ccc;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  color: #5ca2dc;
-  font-size: 1.2em;
-  font-weight: bold;
-  -webkit-transition: all 0.1s ease 0;
-  -moz-transition: all 0.1s ease 0;
-  -o-transition: all 0.1s ease 0;
-  transition: all 0.1s ease 0;
+  -webkit-box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.05) , inset 0px 1px 0px 0px rgba(255,255,255,0.8);
+  -moz-box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.05) , inset 0px 1px 0px 0px rgba(255,255,255,0.8);
+  -o-box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.05) , inset 0px 1px 0px 0px rgba(255,255,255,0.8);
+  box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.05) , inset 0px 1px 0px 0px rgba(255,255,255,0.8);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ebebeb), to(#e6e6e6));
+  background-repeat: repeat-x;
+  filter: 'progidDXImageTransform.Microsoft.Gradient(startColorstr=btn_reg_bg_from, endColorstr=btn_reg_bg_to, GradientType=0)';
+  -webkit-transition: all 0.05s linear 0;
+  -moz-transition: all 0.05s linear 0;
+  -o-transition: all 0.05s linear 0;
+  transition: all 0.05s linear 0;
 }
 button:hover,
-button:hover:hover,
-button:focus:hover,
-button:visited:hover,
-button:active:hover {
-  background-color: #fff;
-  color: #4293d6;
-  border: 1px solid #b3b3b3;
+a[data-type="button"]:hover {
+  background: #efefef;
+  -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2) , inset 0px 1px 0px 0px #f2f2f2;
+  -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2) , inset 0px 1px 0px 0px #f2f2f2;
+  -o-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2) , inset 0px 1px 0px 0px #f2f2f2;
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2) , inset 0px 1px 0px 0px #f2f2f2;
 }
 button:active,
-button:hover:active,
-button:focus:active,
-button:visited:active,
-button:active:active {
-  color: #2d86cf;
-  border: 1px solid #5ca2dc;
-  background-color: #f7f7f7;
+a[data-type="button"]:active {
+  outline: 0;
+  -webkit-box-shadow: 0px 1px 1px 0px rgba(255,255,255,0.8) , inset 0 1px 3px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 1px 1px 0px rgba(255,255,255,0.8) , inset 0 1px 3px 0px rgba(0,0,0,0.2);
+  -o-box-shadow: 0px 1px 1px 0px rgba(255,255,255,0.8) , inset 0 1px 3px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 1px 1px 0px rgba(255,255,255,0.8) , inset 0 1px 3px 0px rgba(0,0,0,0.2);
 }
 body {
   font-family: 'Oxygen', sans-serif;

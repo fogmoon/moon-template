@@ -62,15 +62,16 @@ body
 	> section
 		> article
 			> aside:only-of-type
-				float: left;
-				width: 20%;
-				margin-left: -25%;
-				font-size: 12px;
-				line-height: 1.8;
-			margin: 0 0 20px 0px;
+				float left
+				width 20%
+				margin-left -25%
+				font-size 12px
+				line-height 1.8
+			margin 0 0 20px 0px
+			display inline-table
 			
 		> article[data-aside="true"]
-			margin: 0 0 20px 20%;
+			margin 0 0 20px 20%
 
 	> footer
 		display block
@@ -80,14 +81,53 @@ body
 //			              Buttons                      //
 /////////////////////////////////////////////////////////
 
+button[data-button="push"]
+	padding 12px 6px
+	font-size 1em
+	line-height 0
+	
+button,
+a[data-type="button"]
+	display inline-block
+	height 24px
+	line-height 24px
+	font-size 11px
+	padding 0 7px 0 7px
+	margin 0 7px 0 0
+	text-align center
+	float left
+	cursor pointer
+	text-decoration none
+	-webkit-user-select none
+	-khtml-user-select none
+	-moz-user-select none
+	-ms-user-select none
+	user-select none
+	*zoom 1
+	*margin-left .3em
 
-// reset all the default browser parameters
-button
-	padding 3px 5px
-	margin 0
-	border none
-	min-width button_width
-	min-height button_height
+	&:before,
+	&:after 
+		display tablecontent ""
+	&:after 
+		clear both
+	&:first-child 
+		*margin-left 0
+
+	&[data-size="small"]
+		height 18px
+		line-height 18px
+		font-size 9px
+
+	&[data-size="big"]
+		height 32px
+		line-height 32px
+		font-size 16px
+	
+	&[data-size="huge"]
+		height 48px
+		line-height 48px
+		font-size 22px
 
 	
 

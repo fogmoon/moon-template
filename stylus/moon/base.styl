@@ -46,25 +46,23 @@ button[data-button="push"]
 		box-shadow(inset -1px -1px 5px 0px btn_shadow_prs)
 		
 button,
-button:hover,
-button:focus,
-button:visited,
-button:active
-	background-color btn_bg
-	border 1px solid btn_top_bdr
-	border-radius 3px
-	color btn_text_clr
-	font-size 1.2em
+a[data-type="button"]
 	font-weight bold
-	makeItMove(0.1s)
+	color btn_reg_text_clr
+	text-shadow 0 1px 0 btn_reg_text_shadow
+	border solid 1px btn_reg_border
+	border-radius(3px)
+	box-shadow(0px 1px 0px 0px rgba(0, 0, 0, 0.05)\,inset 0px 1px 0px 0px btn_reg_text_shadow)
+	function-vendor(background-image,linear-gradient,top, btn_reg_bg_from, btn_reg_bg_to)
+	background-image -webkit-gradient(linear, 0 0, 0 100%, from(btn_reg_bg_from), to(btn_reg_bg_to))
+	background-repeat repeat-x
+	filter  'progidDXImageTransform.Microsoft.Gradient(startColorstr=btn_reg_bg_from, endColorstr=btn_reg_bg_to, GradientType=0)'
+	makeItMove(0.05s,all,linear)
 
 	&:hover
-		background-color btn_bg_hover
-		color btn_text_clr_hover
-		border 1px solid btn_rig_bdr
+		background btn_reg_bg_hover
+		box-shadow(0px 1px 1px 0px rgba(0, 0, 0, 0.2)\,inset 0px 1px 0px 0px btn_reg_shadow_hover)
 
 	&:active
-		color btn_text_clr_prs
-		border 1px solid btn_text_clr
-		background-color btn_bg_prs
-		
+		outline 0
+		box-shadow(0px 1px 1px 0px btn_reg_text_shadow\,inset 0 1px 3px 0px rgba(0, 0, 0, 0.2))
