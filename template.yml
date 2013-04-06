@@ -21,3 +21,9 @@ img_path: "img/"
 
 # Le chemin du repertoire contenant les scripts
 js_path: "js/"
+
+css_includes:
+  - "style.css"
+
+js_includes:
+  - "jquery.js"
