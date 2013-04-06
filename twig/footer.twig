@@ -1,0 +1,25 @@
+	{% block footer %}
+
+		<footer>
+
+			<p>&copy; <b>The Moon framework</b> - 2013 - Performed by lambdaweb </p>
+
+			{% block debug %}
+				{# Shows the debug lines #}
+				{{ webdata.debug }}
+			{% endblock %}
+
+		</footer>
+
+	{% endblock %}
+
+	{% block javascript %}
+
+		{% for js in webdata.scripts %}
+			<script src="{{ webdata.base }}{{ js }}"></script>
+		{% endfor %}
+
+	{% endblock %}
+
+	</body>
+</html>

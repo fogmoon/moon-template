@@ -10,7 +10,7 @@ body > section > article > aside:only-of-type{float:left;width:20%;margin-left:-
 body > section > article[data-aside="true"]{margin:0 0 20px 20%}
 body > footer{display:block}
 button[data-button="push"]{padding:12px 6px;font-size:1em;line-height:0}
-button,a[data-type="button"]{display:inline-block;height:24px;line-height:24px;font-size:11px;padding:0 7px 0 7px;margin:0 7px 0 0;text-align:center;float:left;cursor:pointer;text-decoration:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;*zoom:1;*margin-left:.3em;}
+button,a[data-type="button"]{display:inline-block;height:24px;line-height:24px;font-size:11px;padding:0 7px 0 7px;margin:0 7px 0 0;text-align:center;cursor:pointer;text-decoration:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;*zoom:1;*margin-left:.3em;}
 button:before,a[data-type="button"]:before,button:after,a[data-type="button"]:after{display:tablecontent ""}
 button:after,a[data-type="button"]:after{clear:both}
 button:first-child,a[data-type="button"]:first-child{*margin-left:0}

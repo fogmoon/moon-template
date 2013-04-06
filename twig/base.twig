@@ -1,0 +1,94 @@
+{% include 'header.twig' %}
+
+
+		<header class="lol">
+			<h1>
+				Moon framework page template
+			</h1>
+		</header>
+		<nav>
+			<ul>
+				<li>
+					<a href="#">Un premier lien</a>
+				</li>
+				<li>
+					<a href="#">Un deuxieme lien</a>
+				</li>
+				<li>
+					<a href="#">Un troisieme lien</a>
+				</li>
+				<li>et un dernier qui n'est pas un lien
+				</li>
+			</ul>
+		</nav>
+		{% block main_container %}
+		<section>
+			<article data-aside="true">
+				<header>
+					<h2>
+						La récolte des kiwis dans le monde
+					</h2>
+				</header>
+				<aside>
+
+				<br>Notons que les kiwis sont quand meme des fruits
+				extremement savoureux.
+				<a data-type="button">Voir la source</a>
+				</aside>
+				<br>L'Italie est le premier producteur mondial en 2009, 
+				d'où ses recherches dans le développement de nouveaux 
+				cultivars comme à l'Université d'Udine. 
+				<br>La France (5e mondial et troisième européen) produisait 
+				un peu moins de 76 000 tonnes en 2004, son premier client est 
+				l'Espagne. Il est cultivé dans l'Ariège, en Tarn-et-Garonne 
+				et sur la façade atlantique, du Pays basque à la Bretagne.
+				<footer>
+					<p>
+						source : Wikipedia
+					</p>
+				</footer>
+			</article>
+		</section>
+		<section>
+			<article>
+				<header>
+					<h2>
+						We want a shrubbery!! 
+					</h2>
+				</header>
+				<br>Oh! Come and see the violence inherent in the system! 
+				Help, help, I'm being repressed! We shall say 'Ni' again to you, if you do not appease us.
+				<br>Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods. 
+				Well, what do you want? The swallow may fly south with the sun, and the house martin or the plover 
+				may seek warmer climes in winter, yet these are not strangers to our land. 
+				A newt? Bloody Peasant! The Knights Who Say Ni demand a sacrifice!
+				<footer>
+					<p>
+						source : Monthy Python and the Holy Grail
+					</p>
+				</footer>
+			</article>
+		</section>
+		<section>
+			<article>
+				<header>
+					<h1>
+						And what about some buttons ?
+					</h1>
+				</header>
+				<p>With <code>button</code> tag </p>
+				<button data-size="small">Un petit bouton</button>
+				<button>Un bouton normal</button>
+				<button data-size="big">Un grand bouton</button>
+				<button data-size="huge">Un énorme bouton</button>
+				<button data-button="push">Un petit bouton</button>
+				<p>Or with the  <code>a</code>  link tag </p>
+				<a data-type="button" data-size="small">Un petit bouton</a>
+				<a data-type="button">un bouton normal</a>
+				<a data-type="button" data-size="big">Un grand bouton</a>
+				<a data-type="button" data-size="huge">Un énorme bouton</a>
+			</article>
+		</section>
+		{% endblock %}
+
+{% include 'footer.twig' %}

@@ -9,16 +9,15 @@
 #
 
 
-templates:
 
-  # Le chemin du dossier contenant les templates de l'utilisateur
-  twig_path: "twig/"
+# Le chemin du dossier contenant les templates de l'utilisateur
+twig_path: "twig/"
 
-  # Le chemin du repertoire contenant les feuilles de style
-  stylesheets_path: "styles/"
+# Le chemin du repertoire contenant les feuilles de style
+stylesheets_path: "styles/"
 
-  # Le chemin du repertoire contenant les images
-  img_path: "img/"
+# Le chemin du repertoire contenant les images
+img_path: "img/"
 
-  # Le chemin du repertoire contenant les scripts
-  js_path: "js/"
+# Le chemin du repertoire contenant les scripts
+js_path: "js/"
