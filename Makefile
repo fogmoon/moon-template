@@ -13,5 +13,3 @@ clean:
 	@rm styles/*.css;
 
 .PHONY: buildall
-
-
