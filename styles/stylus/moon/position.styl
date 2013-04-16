@@ -41,6 +41,7 @@ body
 	centeredPad()
 
 	> header
+		font-size 2em
 		+ nav
 			> ul
 				display block
@@ -57,7 +58,7 @@ body
 
 	header
 		margin (elt-margin/2) 0
-		padding (elt-margin/2) (elt-margin)
+		padding (elt-margin/2) 0px
 		
 	> section
 		> article
@@ -129,5 +130,15 @@ a[data-type="button"]
 		line-height 48px
 		font-size 22px
 
-	
 
+/////////////////////////////////////////////////////////
+//			              Fields                       //
+/////////////////////////////////////////////////////////
+
+input,
+select
+	border 1px solid
+	padding 4px 6px
+	margin 4px 4px 6px 4px
+	min-height 16px
+	background-color transparent
