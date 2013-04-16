@@ -21,7 +21,7 @@
 				</li>
 			</ul>
 		</nav>
-		{% block main_container %}
+		
 		<section>
 			<article data-aside="true">
 				<header>
@@ -49,6 +49,58 @@
 				</footer>
 			</article>
 		</section>
+		<section>
+			<article>
+				<header>
+					<h2>
+						Testons les formulaires !
+					</h2>
+				</header>
+					<!-- <form data-align="horizontal">
+						<label for="1">Premier élément horizontal</label>
+						<input type="text" id="1" placeholder="Un élément horizontal">
+						<label for="2">Deuxième élément horizontal</label>
+						<input type="text" id="2" placeholder="Un autre élément Horizontal">
+						<input type="text" id="3" placeholder="Et encore un élément Horizontal">
+						<select id="animal1" name="animal">
+							<option value="chien">Chien</option>
+							<option value="chat">Chat</option>
+							<option value="Poisson rouge">Poisson rouge</option>
+						</select>
+					</form> -->
+					<form data-align="vertical">
+						<label for="4">Premier élément vertical</label>
+						<input type="text" id="4" placeholder="Un élément Vertical">
+						<label for="5">Deuxième élément vertical</label>
+						<input type="text" id="5" placeholder="Un autre élément Vertical">
+						<input type="text" id="6" placeholder="Et encore un élément Vertical">
+						<select id="animal2" name="animal">
+							<option value="chien">Chien</option>
+							<option value="chat">Chat</option>
+							<option value="Poisson rouge">Poisson rouge</option>
+						</select>
+					</form>
+					<form data-align="mixed">
+						<label for="4">Premier élément mixed</label>
+						<input type="text" id="4" placeholder="Un élément mixed">
+						<label for="5">Deuxième élément mixed</label>
+						<input type="text" id="5" placeholder="Un autre élément mixed">
+						<input type="text" id="6" placeholder="Et encore un élément mixed">
+						<select id="animal2" name="animal">
+							<option value="chien">Chien</option>
+							<option value="chat">Chat</option>
+							<option value="Poisson rouge">Poisson rouge</option>
+						</select>
+						<label for="pays1">Label de select mixed</label>
+						<select id="pays1" name="pays">
+							<option value="France">France</option>
+							<option value="Italie">Italie</option>
+							<option value="Grèce">Grèce</option>
+						</select>
+					</form>
+			</article>
+		</section>
+		{% block main_container %}
 		<section>
 			<article>
 				<header>

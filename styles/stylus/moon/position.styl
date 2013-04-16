@@ -1,4 +1,5 @@
 
+@import 'variables'
 /////////////////////////////////////////////////////////
 //				 Base units parameters                 //
 /////////////////////////////////////////////////////////
@@ -135,10 +136,91 @@ a[data-type="button"]
 //			              Fields                       //
 /////////////////////////////////////////////////////////
 
-input,
-select
-	border 1px solid
-	padding 4px 6px
-	margin 4px 4px 6px 4px
-	min-height 16px
-	background-color transparent
+form
+	select,
+	textarea,
+	input[type="text"],
+	input[type="password"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="date"],
+	input[type="month"],
+	input[type="time"],
+	input[type="week"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="color"]
+		width base_width
+		height base_height
+		padding input_padding_top input_padding_right
+		margin input_margin_top input_margin_right
+		background-color transparent
+	select
+		height select_height
+		min-width select_width
+	margin-bottom 10px
+		
+form[data-align="horizontal"]
+	input,
+	select
+		display inline-block
+	label
+		margin-left 10px
+		
+form[data-align="vertical"]
+	input,
+	select,
+	label
+		display block
+	input + label,
+	select + label
+		margin-top 10px
+
+form[data-align="mixed"]
+	label ~ input,
+	label ~ select 
+		float right
+		clear right
+		display block
+	label > input,
+	label > select
+		margin-left input_margin_right*4
+	label
+		float left
+		clear both
+		display block
+		vertical-align middle
+		line-height base_height + 2*input_border_width
+		padding input_padding_top input_padding_right
+		margin input_margin_top 6*input_margin_right input_margin_top input_margin_right
+		height base_height + 2*input_border_width
+
+form[data-align="labelled"]
+	label ~ input,
+	label ~ select 
+		clear right
+		display block
+	label > input,
+	label > select
+		margin-left input_margin_right*4
+	label
+		float left
+		clear both
+		display block
+		vertical-align middle
+		line-height base_height + 2*input_border_width
+		padding input_padding_top input_padding_right
+		margin input_margin_top input_margin_right
+		height base_height + 2*input_border_width
+		min-width 2*base_width
+	input + select,
+	select + input,
+	select + select,
+	input + input
+		clear right
+		display block
+		float right
+		min-width 2*base_width		
