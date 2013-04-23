@@ -1,1 +1,4 @@
 styles/style.css
+twig/base.twig
+twig/footer.twig
+twig/header.twig
