@@ -10,6 +10,6 @@ buildall: clean
 
 clean:
 	@echo "Cleaning the default Moon template..."
-	@rm styles/*.css;
+	@rm -f styles/*.css;
 
 .PHONY: buildall
