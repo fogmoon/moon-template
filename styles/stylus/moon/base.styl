@@ -57,7 +57,7 @@ a[data-type="button"]
 	background-image -webkit-gradient(linear, 0 0, 0 100%, from(btn_reg_bg_from), to(btn_reg_bg_to))
 	background-repeat repeat-x
 	filter  'progidDXImageTransform.Microsoft.Gradient(startColorstr=btn_reg_bg_from, endColorstr=btn_reg_bg_to, GradientType=0)'
-	makeItMove(0.05s,all,linear)
+	makeItMove(0s,all,linear)
 
 	&:hover
 		background btn_reg_bg_hover
@@ -66,6 +66,11 @@ a[data-type="button"]
 	&:active
 		outline 0
 		box-shadow(0px 1px 1px 0px btn_reg_text_shadow\,inset 0 1px 3px 0px rgba(0, 0, 0, 0.2))
+	
+	&:disabled
+		background-image -webkit-gradient(linear, 0 0, 0 100%, from(btn_reg_bg_disabled), to(btn_reg_bg_disabled))
+		box-shadow none
+		color transparize(btn_reg_text_clr,0.6)
 
 /////////////////////////////////////////////////////////
 //			              Fields                       //
