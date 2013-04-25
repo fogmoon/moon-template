@@ -51,6 +51,34 @@ body > section[data-display="monobox"] {
   margin-top: 10%;
   padding: 20px;
 }
+*[data-width="full"] {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+*[data-width="half"] {
+  width: 50%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+*[data-width="tiers"] {
+  width: 33%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+*[data-width="quarter"] {
+  width: 25%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
 button[data-button="push"] {
   padding: 12px 6px;
   font-size: 1em;
