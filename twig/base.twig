@@ -1,6 +1,7 @@
 {# The header include. Contain all the <head> section #}
 {% include 'header.twig' %}
 
+			{% block base %}
 
 		<header>
 			<h1>
@@ -29,4 +30,5 @@
 		{% block main_container %}
 		{% endblock %}
 
+			{% endblock %}
 {% include 'footer.twig' %}

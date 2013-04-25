@@ -1,34 +1,4 @@
-
 @import 'variables'
-/////////////////////////////////////////////////////////
-//				 Base units parameters                 //
-/////////////////////////////////////////////////////////
-
-main-width = 80%
-main-pad = (100% - main-width) /2
-elt-margin = 10px
-top-nav-height = 50px
-
-
-/////////////////////////////////////////////////////////
-//				   Buttons parameters                  //
-/////////////////////////////////////////////////////////
-
-button_width = 80px
-button_height = 40px
-
-
-
-//////////////// -- Stop editing now -- /////////////////
-
-
-/////////////////////////////////////////////////////////
-//			             Functions                     //
-/////////////////////////////////////////////////////////
-
-centeredPad(wid = main-width, pad = main-pad)
-	width: wid
-	padding 0 pad
 
 
 /////////////////////////////////////////////////////////
@@ -90,9 +60,39 @@ body > section[data-display="monobox"]
 	margin auto
 	margin-top 10%
 	padding 20px
-	
-	
 
+
+/////////////////////////////////////////////////////////
+//			         Global display(s)                //
+/////////////////////////////////////////////////////////
+
+*[data-width="full"]
+	width 100%
+	padding-left 0
+	padding-right 0
+	margin-left 0
+	margin-right 0
+
+*[data-width="half"]
+	width 50%
+	padding-left 0
+	padding-right 0
+	margin-left 0
+	margin-right 0
+
+*[data-width="tiers"]
+	width 33%
+	padding-left 0
+	padding-right 0
+	margin-left 0
+	margin-right 0
+
+*[data-width="quarter"]
+	width 25%
+	padding-left 0
+	padding-right 0
+	margin-left 0
+	margin-right 0
 
 /////////////////////////////////////////////////////////
 //			              Buttons                      //
@@ -102,7 +102,7 @@ button[data-button="push"]
 	padding 12px 6px
 	font-size 1em
 	line-height 0
-	
+
 button,
 a[data-type="button"]
 	display inline-block
