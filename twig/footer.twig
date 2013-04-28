@@ -4,10 +4,6 @@
 
 			<p>&copy; <b>lambdaweb</b> - 2013 </p>
 
-			{% block debug %}
-				{# Shows the debug lines #}
-				{{ webdata.debug }}
-			{% endblock %}
 
 		</footer>
 
@@ -21,5 +17,9 @@
 
 	{% endblock %}
 
+	{% block debug %}
+		{# Shows the debug lines #}
+		{{ webdata.debug }}
+	{% endblock %}
 	</body>
 </html>

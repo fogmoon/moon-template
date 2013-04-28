@@ -1,6 +1,20 @@
 {# The header include. Contain all the <head> section #}
 {% include 'header.twig' %}
 
+			{% block notifications %}
+				{% if errors %}
+					<div class="moon-errors">
+					        <p style="color:red">{{ errors }}</p>
+					</div>
+				{% endif %}
+				{% if success %}
+					<div class="moon-success">
+					        <p style="color:green">{{ success }}</p>
+					</div>
+				{% endif %}
+
+			{% endblock %}
+
 			{% block base %}
 
 		<header>
@@ -31,4 +45,6 @@
 		{% endblock %}
 
 			{% endblock %}
+
+			{{ dump() }}
 {% include 'footer.twig' %}
