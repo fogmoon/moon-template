@@ -27,3 +27,4 @@ css_includes:
 
 js_includes:
   - "jquery.js"
+  - "moon.js"
