@@ -5,11 +5,13 @@
 				{% if errors %}
 					<div class="moon-errors">
 					        <p style="color:red">{{ errors }}</p>
+						<button data-action="close">x</button>
 					</div>
 				{% endif %}
 				{% if success %}
 					<div class="moon-success">
 					        <p style="color:green">{{ success }}</p>
+						<button data-action="close">x</button>
 					</div>
 				{% endif %}
 
