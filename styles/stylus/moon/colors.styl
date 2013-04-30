@@ -2,73 +2,73 @@
 @import 'variables'
 
 /////////////////////////////////////////////////////////
-//				The colors stylus file                 //
+//                The colors stylus file                 //
 /////////////////////////////////////////////////////////
 
 
-h1_color 			= saturate(primary_color,50%)
+h1_color             = saturate(primary_color,50%)
 
-link_color 			= darken(saturate(primary_color,10%),20%)
+link_color             = darken(saturate(primary_color,10%),20%)
 
 /////////////////////////////////////////////////////////
-//			     Button  (PUSH) colors                 //
+//                 Button  (PUSH) colors                 //
 /////////////////////////////////////////////////////////
 
 
-btn_bg				= softize(background_color)
+btn_bg                = softize(background_color)
 
 // The main button border colors
-btn_top_bdr 		= hardize(background_color,20%)
-btn_rig_bdr 		= hardize(background_color,30%)
-btn_lft_bdr 		= hardize(background_color,10%)
-btn_btm_bdr 		= hardize(background_color,35%)
+btn_top_bdr         = hardize(background_color,20%)
+btn_rig_bdr         = hardize(background_color,30%)
+btn_lft_bdr         = hardize(background_color,10%)
+btn_btm_bdr         = hardize(background_color,35%)
 
 // Text color
-btn_text_clr		= hardize(primary_color,10%)
+btn_text_clr        = hardize(primary_color,10%)
 
 
 // -- On hover --
-btn_bg_hover		= softize(btn_bg)
-btn_text_clr_hover	= hardize(btn_text_clr,10%)
+btn_bg_hover        = softize(btn_bg)
+btn_text_clr_hover    = hardize(btn_text_clr,10%)
 
 // -- On press --
-btn_top_bdr_prs 	= hardize(background_color,20%)
-btn_lft_bdr_prs 	= hardize(background_color,20%)
-btn_shadow_prs		= transparize(invert(btn_bg_hover),0.15)
-btn_text_clr_prs	= hardize(btn_text_clr_hover,10%)
-btn_bg_prs			= hardize(btn_bg_hover,3%)
+btn_top_bdr_prs     = hardize(background_color,20%)
+btn_lft_bdr_prs     = hardize(background_color,20%)
+btn_shadow_prs        = transparize(invert(btn_bg_hover),0.15)
+btn_text_clr_prs    = hardize(btn_text_clr_hover,10%)
+btn_bg_prs            = hardize(btn_bg_hover,3%)
 
 
 /////////////////////////////////////////////////////////
-//			     Regular button colors                 //
+//                 Regular button colors                 //
 /////////////////////////////////////////////////////////
 
-btn_reg_bg				= hardize(background_color,8%)
-btn_reg_bg_from			= hardize(background_color,8%)
-btn_reg_bg_to			= hardize(background_color,10%)
+btn_reg_bg                = hardize(background_color,8%)
+btn_reg_bg_from            = hardize(background_color,8%)
+btn_reg_bg_to            = hardize(background_color,10%)
 
 // The main button border colors
-btn_reg_border 			= hardize(background_color,20%)
+btn_reg_border             = hardize(background_color,20%)
 
 // Text color
-btn_reg_text_clr		= hardize(secondary_color,10%)
-btn_reg_text_shadow		= transparize(background_color,0.8)
+btn_reg_text_clr        = hardize(secondary_color,10%)
+btn_reg_text_shadow        = transparize(background_color,0.8)
 
 // -- On hover --
-btn_reg_bg_hover		= softize(btn_reg_bg)
-btn_reg_shadow_hover	= softize(btn_reg_bg_hover)
+btn_reg_bg_hover        = softize(btn_reg_bg)
+btn_reg_shadow_hover    = softize(btn_reg_bg_hover)
 
 // -- disabled --
-btn_reg_bg_disabled		= softize(btn_reg_bg_hover)
-btn_reg_shadow_disabled	= softize(btn_reg_shadow_hover)
+btn_reg_bg_disabled        = softize(btn_reg_bg_hover)
+btn_reg_shadow_disabled    = softize(btn_reg_shadow_hover)
 
 
 /////////////////////////////////////////////////////////
-//	    	You whant to see the colors ?              //
+//            You whant to see the colors ?              //
 /////////////////////////////////////////////////////////
 
 /*
 body *
-	background rgba(50,0,0,0.05)
+    background rgba(50,0,0,0.05)
 
 */

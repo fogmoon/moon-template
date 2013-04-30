@@ -4,89 +4,89 @@
 @import 'helpers'
 
 /////////////////////////////////////////////////////////
-//			                Base                       //
+//                            Base                       //
 /////////////////////////////////////////////////////////
-	
+    
 a
-	color link_color
+    color link_color
 
 /*
 body
-	background-color background_color
+    background-color background_color
 */
 
 /////////////////////////////////////////////////////////
-//			              Buttons                      //
+//                          Buttons                      //
 /////////////////////////////////////////////////////////
 
 button[data-button="push"]
-	background-color btn_bg
-	border-top 1px solid btn_top_bdr
-	border-left 3px solid btn_lft_bdr
-	border-bottom 5px solid btn_btm_bdr
-	border-right 3px solid btn_rig_bdr
-	border-radius 5px
-	color btn_text_clr
-	font-size 1.2em
-	font-weight bold
-	makeItMove(0.1s)
+    background-color btn_bg
+    border-top 1px solid btn_top_bdr
+    border-left 3px solid btn_lft_bdr
+    border-bottom 5px solid btn_btm_bdr
+    border-right 3px solid btn_rig_bdr
+    border-radius 5px
+    color btn_text_clr
+    font-size 1.2em
+    font-weight bold
+    makeItMove(0.1s)
 
-	&:hover
-		background-color btn_bg_hover
-		border-top 1px solid btn_top_bdr
-		border-left 3px solid btn_lft_bdr
-		border-bottom 5px solid btn_btm_bdr
-		border-right 3px solid btn_rig_bdr
+    &:hover
+        background-color btn_bg_hover
+        border-top 1px solid btn_top_bdr
+        border-left 3px solid btn_lft_bdr
+        border-bottom 5px solid btn_btm_bdr
+        border-right 3px solid btn_rig_bdr
 
-	&:active
-		background-color btn_bg_hover
-		border-top 5px solid btn_top_bdr_prs
-		border-left 5px solid btn_lft_bdr_prs
-		border-bottom 1px solid btn_btm_bdr
-		border-right 1px solid btn_rig_bdr
-		box-shadow(inset -1px -1px 5px 0px btn_shadow_prs)
-		
+    &:active
+        background-color btn_bg_hover
+        border-top 5px solid btn_top_bdr_prs
+        border-left 5px solid btn_lft_bdr_prs
+        border-bottom 1px solid btn_btm_bdr
+        border-right 1px solid btn_rig_bdr
+        box-shadow(inset -1px -1px 5px 0px btn_shadow_prs)
+        
 button,
 a[data-type="button"]
-	font-weight bold
-	color btn_reg_text_clr
-	text-shadow 0 1px 0 btn_reg_text_shadow
-	border solid 1px btn_reg_border
-	border-radius(3px)
-	box-shadow(0px 1px 0px 0px rgba(0, 0, 0, 0.05)\,inset 0px 1px 0px 0px btn_reg_text_shadow)
-	function-vendor(background-image,linear-gradient,top, btn_reg_bg_from, btn_reg_bg_to)
-	background-image -webkit-gradient(linear, 0 0, 0 100%, from(btn_reg_bg_from), to(btn_reg_bg_to))
-	background-repeat repeat-x
-	filter  'progidDXImageTransform.Microsoft.Gradient(startColorstr=btn_reg_bg_from, endColorstr=btn_reg_bg_to, GradientType=0)'
-	makeItMove(0s,all,linear)
+    font-weight bold
+    color btn_reg_text_clr
+    text-shadow 0 1px 0 btn_reg_text_shadow
+    border solid 1px btn_reg_border
+    border-radius(3px)
+    box-shadow(0px 1px 0px 0px rgba(0, 0, 0, 0.05)\,inset 0px 1px 0px 0px btn_reg_text_shadow)
+    function-vendor(background-image,linear-gradient,top, btn_reg_bg_from, btn_reg_bg_to)
+    background-image -webkit-gradient(linear, 0 0, 0 100%, from(btn_reg_bg_from), to(btn_reg_bg_to))
+    background-repeat repeat-x
+    filter  'progidDXImageTransform.Microsoft.Gradient(startColorstr=btn_reg_bg_from, endColorstr=btn_reg_bg_to, GradientType=0)'
+    makeItMove(0s,all,linear)
 
-	&:hover
-		background btn_reg_bg_hover
-		box-shadow(0px 1px 1px 0px rgba(0, 0, 0, 0.2)\,inset 0px 1px 0px 0px btn_reg_shadow_hover)
+    &:hover
+        background btn_reg_bg_hover
+        box-shadow(0px 1px 1px 0px rgba(0, 0, 0, 0.2)\,inset 0px 1px 0px 0px btn_reg_shadow_hover)
 
-	&:active
-		outline 0
-		box-shadow(0px 1px 1px 0px btn_reg_text_shadow\,inset 0 1px 3px 0px rgba(0, 0, 0, 0.2))
-	
-	&:disabled
-		background-image -webkit-gradient(linear, 0 0, 0 100%, from(btn_reg_bg_disabled), to(btn_reg_bg_disabled))
-		box-shadow none
-		color transparize(btn_reg_text_clr,0.6)
+    &:active
+        outline 0
+        box-shadow(0px 1px 1px 0px btn_reg_text_shadow\,inset 0 1px 3px 0px rgba(0, 0, 0, 0.2))
+    
+    &:disabled
+        background-image -webkit-gradient(linear, 0 0, 0 100%, from(btn_reg_bg_disabled), to(btn_reg_bg_disabled))
+        box-shadow none
+        color transparize(btn_reg_text_clr,0.6)
 
 /////////////////////////////////////////////////////////
-//			              Fields                       //
+//                          Fields                       //
 /////////////////////////////////////////////////////////
 
 
 select,
 textarea,
 input
-	outline: none;
-	border-radius(2px)
-	color btn_reg_text_clr
-	border input_border_width solid btn_reg_border
-	makeItMove(0.1s,all,linear)
-	box-shadow(inset 0 1px 3px rgba(0, 0, 0, .05)\,0 1px 0 rgba(255, 255, 255, .075))
+    outline: none;
+    border-radius(2px)
+    color btn_reg_text_clr
+    border input_border_width solid btn_reg_border
+    makeItMove(0.1s,all,linear)
+    box-shadow(inset 0 1px 3px rgba(0, 0, 0, .05)\,0 1px 0 rgba(255, 255, 255, .075))
 
 select:focus,
 textarea:focus,
@@ -94,15 +94,26 @@ input:focus,
 select:focus:hover,
 textarea:focus:hover,
 input:focus:hover
-	outline: none;
-	border input_border_width solid primary_color
-	box-shadow(inset 0 1px 3px rgba(0, 0, 0, .05)\,0 0 8px transparize(primary_color,0.7))
+    outline: none;
+    border input_border_width solid primary_color
+    box-shadow(inset 0 1px 3px rgba(0, 0, 0, .05)\,0 0 8px transparize(primary_color,0.7))
 
 select:hover,
 textarea:hover,
 input:hover
-	outline: none;
-	border input_border_width solid transparize(primary_color,0.5)
-	box-shadow(inset 0 1px 3px rgba(0, 0, 0, .05)\,0 0 8px transparize(primary_color,0.3))
+    outline none
+    border input_border_width solid transparize(primary_color,0.5)
+    box-shadow(inset 0 1px 3px rgba(0, 0, 0, .05)\,0 0 8px transparize(primary_color,0.3))
 
-	
+/////////////////////////////////////////////////////////
+//                        Forms                        //
+/////////////////////////////////////////////////////////
+
+form[data-type="smart-input"]
+    input
+        background-color transparent
+        border input_border_width solid transparent
+        border-radius(0px)
+        box-shadow(inset 0 1px 3px rgba(0,0,0,0)\,0 0 8px rgba(0,0,0,0))
+    input:hover
+        border-bottom input_border_width solid primary_color
