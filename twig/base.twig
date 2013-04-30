@@ -3,15 +3,15 @@
 
 			{% block notifications %}
 				{% if errors %}
-					<div class="moon-errors">
-					        <p style="color:red">{{ errors }}</p>
-						<button data-action="close">x</button>
+					<div class="moon-errors" data-role="notification">
+					        <p>{{ errors }}</p>
+						<a href="#" data-action="close">x</a>
 					</div>
 				{% endif %}
 				{% if success %}
-					<div class="moon-success">
-					        <p style="color:green">{{ success }}</p>
-						<button data-action="close">x</button>
+					<div class="moon-success" data-role="notification">
+					        <p>{{ success }}</p>
+						<a href="#" data-action="close">x</a>
 					</div>
 				{% endif %}
 

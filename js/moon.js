@@ -14,8 +14,6 @@
                 'left' : '0px',
                 'top' : '0px',
                 'right' : '0px',
-                'background-color' : 'rgb(255,150,0)',
-                'color' : '#FFF'
             }
         }
     }
@@ -30,32 +28,27 @@
         },
         run: function()
         {
-            $(JsMoon.params.notifications.selector).slideDown('slow',function(){
+            $(JsMoon.params.notifications.selector).delay(500).slideDown('fast',function(){
                 $(this).find('[data-action="close"]').first().click(function(){
-                    JsMoon.notifications.blabla($(this));
+                    JsMoon.notifications.blabla($(this)
+		        .parent(JsMoon.params.notifications.selector).first());
                 });
+		$(this).delay(4000).slideUp('fast');
             });
 
         },
         blabla: function(element)
         {
-            element.slideUp();
+            element.slideUp('fast');
         }
     }
 
     JsMoon.run = function()
     {
-        
-
     	console.log('JsMoon is now running...');
         JsMoon.notifications.init();
         JsMoon.notifications.run();
-
-
     }
-
-    
- 
 })(jQuery);
 
 JsMoon.run(); 
