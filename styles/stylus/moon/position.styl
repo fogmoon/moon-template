@@ -103,6 +103,12 @@ button[data-button="push"]
     font-size 1em
     line-height 0
 
+button[data-width="input"]
+    width base_width
+    height base_height
+    padding input_padding_top input_padding_right
+    margin input_margin_top input_margin_right
+
 button,
 a[data-type="button"]
     display inline-block
@@ -215,7 +221,9 @@ form[data-align="vertical"]
 
 form[data-align="mixed"]
     label ~ input,
-    label ~ select 
+    label ~ select,
+    button[type="submit"],
+    input[type="submit"]
         float right
         clear right
         display block
@@ -257,4 +265,4 @@ form[data-align="labelled"]
         clear right
         display block
         float right
-        min-width 2*base_width        
+    min-width 2*base_width        

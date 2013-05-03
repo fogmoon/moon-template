@@ -3,3 +3,4 @@ twig/base.twig
 twig/footer.twig
 twig/header.twig
 *.swp
+*.swo
