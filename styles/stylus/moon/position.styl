@@ -119,7 +119,7 @@ a[data-type="button"]
     line-height 24px
     font-size 11px
     padding 0 7px 0 7px
-    margin 0 7px 0 0
+    margin 4px
     text-align center
     //float left
     cursor pointer
@@ -184,8 +184,9 @@ form
     select
         height select_height
         min-width select_width
+
     margin-bottom 10px
-        
+            
 form
     label ~ input,
     label ~ select 
@@ -230,6 +231,8 @@ form[data-align="mixed"]
         float right
         clear right
         display block
+    label ~ input[type="date"]
+        display -webkit-inline-box
     label > input,
     label > select
         margin-left input_margin_right*4
