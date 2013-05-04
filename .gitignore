@@ -4,3 +4,4 @@ twig/footer.twig
 twig/header.twig
 *.swp
 *.swo
+*.swn
