@@ -7,6 +7,10 @@
     window.JsMoon = {};
 
     JsMoon.params = {
+        
+        toggle : {
+            selector : 'data-toggle'
+        },
         notifications : {
             selector : '[data-role="notification"]',
             globalStyles : {
@@ -15,6 +19,18 @@
                 'top' : '0px',
                 'right' : '0px',
             }
+        }
+    }
+
+    JsMoon.toggle = {
+        init: function()
+        {
+            var selector = JsMoon.params.toggle.selector;
+            var elements = $('[' + selector + ']');
+            elements.each(function(){
+                 $(this).click(function(){$('#'+ $(this).attr(selector)).slideToggle();});
+                 $('#'+ $(this).attr(selector)).hide();           
+            });
         }
     }
 
@@ -46,6 +62,7 @@
     JsMoon.run = function()
     {
     	console.log('JsMoon is now running...');
+        JsMoon.toggle.init();
         JsMoon.notifications.init();
         JsMoon.notifications.run();
     }
