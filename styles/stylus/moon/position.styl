@@ -35,6 +35,10 @@ body
         > header
             font-size 1.2em
             font-weight bold
+            > h3
+                font-size 0.8em
+                font-weight normal
+
         > article
             > aside:only-of-type
                 float left
@@ -47,6 +51,21 @@ body
             
         > article[data-aside="true"]
             margin 0 0 20px 20%
+    
+    > section[data-space="left"]
+        margin-left 20%
+
+    > aside[data-spacer="left"]
+        position fixed
+        max-width 20%
+
+    > aside + section
+        display inline-block
+
+    > aside
+        padding 0px 1%
+        display inline-block
+        vertical-align top
 
     > footer
         display block
@@ -90,6 +109,13 @@ body > section[data-display="monobox"]
     margin-left 1%
     margin-right 1%
 
+*[data-width="two-tiers"]
+    width 64%
+    padding-left 0
+    padding-right 0
+    margin-left 1%
+    margin-right 1%
+
 *[data-width="quarter"]
     width 23%
     padding-left 0
@@ -97,8 +123,15 @@ body > section[data-display="monobox"]
     margin-left 1%
     margin-right 1%
 
+*[data-width="three-quarter"]
+    width 73%
+    padding-left 0
+    padding-right 0
+    margin-left 1%
+    margin-right 1%
+
 /////////////////////////////////////////////////////////
-//              Buttons                      //
+//                          Buttons                    //
 /////////////////////////////////////////////////////////
 
 button[data-button="push"]
@@ -272,3 +305,15 @@ form[data-align="labelled"]
         display block
         float right
     min-width 2*base_width        
+
+
+
+/////////////////////////////////////////////////////////
+//                       Figures                       //
+/////////////////////////////////////////////////////////
+
+figure > img 
+    padding 10px
+    vendor('border-radius',2px)
+    margin 0px
+    border 1px solid rgba(0,0,0,0.1)

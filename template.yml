@@ -24,7 +24,10 @@ js_path: "js/"
 
 css_includes:
   - "style.css"
+  - "vendor/font-awesome.min.css"
 
 js_includes:
   - "jquery.js"
+  - "moment.min.js"
   - "moon.js"
+
