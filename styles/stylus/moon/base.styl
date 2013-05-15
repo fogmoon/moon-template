@@ -72,6 +72,57 @@ a[data-type="button"]
         background-image -webkit-gradient(linear, 0 0, 0 100%, from(btn_reg_bg_disabled), to(btn_reg_bg_disabled))
         box-shadow none
         color transparize(btn_reg_text_clr,0.6)
+    
+*[data-button="simple"]
+    font-weight bold
+    color background_color
+    text-shadow none
+    border solid 1px transparent
+    border-radius(0px)
+    box-shadow none
+    background-color hardize(primary_color,15%)
+    background-image none
+    filter none 
+    makeItMove(0.1s,all,linear)
+
+    &:hover
+        background primary_color
+        box-shadow none
+
+    &:active
+        background softize(primary_color,10%)
+        box-shadow none
+    &:disabled
+        background-image none
+        background transparize(primary_color,0.2)
+        box-shadow none
+        color transparize(background_color,0.6)
+
+*[data-button="simple-inv"]
+    font-weight bold
+    color primary_color
+    text-shadow none
+    border solid 1px transparent
+    border-radius(0px)
+    box-shadow none
+    background-color background-color
+    background-image none
+    filter none 
+    makeItMove(0.1s,all,linear)
+
+    &:hover
+        background background-color
+        color hardize(primary_color,20%)
+        box-shadow none
+
+    &:active
+        background background_color
+        box-shadow none
+    &:disabled
+        background-image none
+        background softize(background_color,20%)
+        box-shadow none
+        color transparize(background_color,0.6)
 
 /////////////////////////////////////////////////////////
 //                          Fields                       //

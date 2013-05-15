@@ -8,6 +8,12 @@
 a
     text-decoration initial
 
+li
+    list-style none
+
+*[data-display="block"]
+    display block
+
 body
     centeredPad()
 
@@ -24,8 +30,7 @@ body
                     line-height top-nav-height
                     text-align center
                     margin (main-width / 100)
-
-                    
+                    list-style none
 
     header
         margin (elt-margin/2) 0
@@ -58,6 +63,10 @@ body
     > aside[data-spacer="left"]
         position fixed
         max-width 20%
+        > ul
+            margin 0
+            padding 0
+            text-align center
 
     > aside + section
         display inline-block
@@ -144,6 +153,16 @@ button[data-width="input"]
     height base_height
     padding input_padding_top input_padding_right
     margin input_margin_top input_margin_right
+
+*[data-button="simple"],
+*[data-button="simple-inv"]
+    padding 6px
+    margin 4px
+    display block
+    text-align center
+    font-size 1em
+    min-height base_height
+
 
 button,
 a[data-type="button"]

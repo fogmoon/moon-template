@@ -12,6 +12,12 @@
         {
             selector : 'data-toggle'
         },
+        push : 
+        {
+            selector : 'data-role="push"',
+            direction : 'data-push-direction',
+            menu : 'data-push-menu'
+        },
         notifications : 
         {
             selector : '[data-role="notification"]',
@@ -37,6 +43,28 @@
             });
         }
     }
+    
+    JsMoon.push = {
+        init: function()
+        {
+            $('body').first().addClass('cbp-spmenu-push');
+            var selector = JsMoon.params.push.selector;
+            var direction = JsMoon.params.push.direction;
+            var menu = JsMoon.params.push.menu;
+            var elements = $('[' + selector + ']');
+            elements.each(function()
+            {
+                $(this).click(function(){
+                    menuElement = $('#'+$(this).attr(menu));
+                    console.log("menu !");
+                    $(this).toggleClass('active');
+                    $('body').toggleClass('cbp-spmenu-push-to'+$(this).attr(direction));
+                    menuElement.toggleClass('cbp-spmenu-open');
+                });
+            });
+        }
+    }
+
 
     JsMoon.notifications = {
         init: function()
@@ -126,6 +154,7 @@ JsMoon.run = function()
 {
     console.log('JsMoon is now running...');
     JsMoon.toggle.init();
+    JsMoon.push.init();
     JsMoon.notifications.init();
     JsMoon.notifications.run();
     JsMoon.date.run();
