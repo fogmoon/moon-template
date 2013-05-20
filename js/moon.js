@@ -12,6 +12,12 @@
         {
             selector : 'data-toggle'
         },
+        load : 
+        {
+            target : 'data-load-target',
+            template : 'data-load-template',
+            position: 'data-load-position'
+        },
         push : 
         {
             selector : 'data-role="push"',
@@ -49,7 +55,52 @@
             });
         }
     }
-    
+
+    JsMoon.load = {
+        init: function()
+        {
+            var target = JsMoon.params.load.target;
+            var targetTrigger = $('[' + target + ']');
+            var position = JsMoon.params.load.position;
+            var template = JsMoon.params.load.template;
+
+            targetTrigger.each(function()
+            {
+                $(this).click(function()
+                {
+                    var targetElement = $( $(this).attr(target) );
+                    var contentUrl = $(this).attr(template);
+                    var targetPosition = $(this).attr(position) || 'replace';
+
+                    switch(targetPosition) {
+                        case 'afterLast':
+                            $.get(contentUrl,function(data){targetElement.last().after(data);});
+                        break;
+
+                        case 'beforeFirst':
+                            $.get(contentUrl,function(data){targetElement.first().before(data);});
+                        break;
+                        
+                        case 'replace':
+                            $.get(contentUrl,function(data){
+                                var prevElem = targetElement.prev();
+                                targetElement.remove();
+                                prevElem.after(data);
+                            });
+                        break;
+
+                        case 'inner':
+                            $.get(contentUrl,function(data){
+                                targetElement.html(data);
+                            });
+                        break;
+                    }
+                });
+            });
+
+        }
+    }
+
     JsMoon.push = {
         init: function()
         {
@@ -84,18 +135,24 @@
             var direction = JsMoon.params.side.direction;
             var menu = JsMoon.params.side.menu;
             var elements = $('[' + selector + ']');
-            menuElement = $('#'+$(elements).attr(menu));
-            menuElement.first().addClass('cbp-spmenu').addClass('cbp-spmenu-vertical').addClass('cbp-spmenu-left');
-            menuElement.append('<a data-role="close-side"><i class="icon-arrow-left"></i> Back</a>');
             elements.each(function()
             {
-                $(this).click(function(){
+                var button = $(this);
+                menuElement = $('#'+button.attr(menu));
+                menuElement.first().addClass('cbp-spmenu').addClass('cbp-spmenu-vertical').addClass('cbp-spmenu-left');
+                menuElement.append('<a data-role="close-side"><i class="icon-arrow-left"></i> Back</a>');
+                button.click(function(){
                     menuElement = $('#'+$(this).attr(menu));
                     $(this).toggleClass('active');
                     $('body').toggleClass('cbp-spmenu-side-to'+$(this).attr(direction));
+                    $('.cbp-spmenu-open').each(function()
+                    {
+                        if($(this).attr('id') != menuElement.attr('id'))
+                            $(this).removeClass('cbp-spmenu-open');
+                    });
                     menuElement.toggleClass('cbp-spmenu-open');
                 });
-                menuElement.find('a[data-role="close-side"]').click(function(){elements.trigger('click');});
+                menuElement.find('a[data-role="close-side"]').click(function(){button.trigger('click');});
             });
         }
     }
@@ -200,6 +257,7 @@ JsMoon.run = function()
     JsMoon.push.init();
     JsMoon.side.init();
     JsMoon.scroll.init();
+    JsMoon.load.init();
     JsMoon.notifications.init();
     JsMoon.notifications.run();
     JsMoon.date.run();

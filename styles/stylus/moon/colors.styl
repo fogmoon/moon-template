@@ -64,6 +64,24 @@ btn_reg_shadow_disabled    = softize(btn_reg_shadow_hover)
 
 
 /////////////////////////////////////////////////////////
+//                    Color modifiers                  //
+/////////////////////////////////////////////////////////
+
+inverted_color = hardize(invert(primary_color),40%)
+
+*[data-type$="inv"],
+*[data-button$="inv"],
+*[data-display$="inv"]
+    background-color inverted_color
+    color softize(secondary_color,50%)
+    
+btn_reg_bg                = hardize(background_color,8%)
+btn_reg_bg_from            = hardize(background_color,8%)
+btn_reg_bg_to            = hardize(background_color,10%)
+
+
+
+/////////////////////////////////////////////////////////
 //            You whant to see the colors ?              //
 /////////////////////////////////////////////////////////
 
