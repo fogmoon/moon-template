@@ -18,6 +18,12 @@
             direction : 'data-push-direction',
             menu : 'data-push-menu'
         },
+        side : 
+        {
+            selector : 'data-role="side"',
+            direction : 'data-side-direction',
+            menu : 'data-side-menu'
+        },
         notifications : 
         {
             selector : '[data-role="notification"]',
@@ -52,20 +58,47 @@
             var direction = JsMoon.params.push.direction;
             var menu = JsMoon.params.push.menu;
             var elements = $('[' + selector + ']');
+            menuElement = $('#'+$(elements).attr(menu));
+            menuElement.first().addClass('cbp-spmenu').addClass('cbp-spmenu-vertical').addClass('cbp-spmenu-left');
+            menuElement.append('<a data-role="close-push"><i class="icon-arrow-left"></i> Back</a>');
             elements.each(function()
             {
                 $(this).click(function(){
                     menuElement = $('#'+$(this).attr(menu));
-                    console.log("menu !");
                     $(this).toggleClass('active');
                     $('body').toggleClass('cbp-spmenu-push-to'+$(this).attr(direction));
                     menuElement.toggleClass('cbp-spmenu-open');
                 });
+                menuElement.find('a[data-role="close-push"]').click(function(){elements.trigger('click');});
+
             });
         }
     }
 
-
+   // Need to be reviewed : directon is on left. Must be left, right, top or bottom ! 
+    JsMoon.side = {
+        init: function()
+        {
+            $('body').first().addClass('cbp-spmenu-push');
+            var selector = JsMoon.params.side.selector;
+            var direction = JsMoon.params.side.direction;
+            var menu = JsMoon.params.side.menu;
+            var elements = $('[' + selector + ']');
+            menuElement = $('#'+$(elements).attr(menu));
+            menuElement.first().addClass('cbp-spmenu').addClass('cbp-spmenu-vertical').addClass('cbp-spmenu-left');
+            menuElement.append('<a data-role="close-side"><i class="icon-arrow-left"></i> Back</a>');
+            elements.each(function()
+            {
+                $(this).click(function(){
+                    menuElement = $('#'+$(this).attr(menu));
+                    $(this).toggleClass('active');
+                    $('body').toggleClass('cbp-spmenu-side-to'+$(this).attr(direction));
+                    menuElement.toggleClass('cbp-spmenu-open');
+                });
+                menuElement.find('a[data-role="close-side"]').click(function(){elements.trigger('click');});
+            });
+        }
+    }
     JsMoon.notifications = {
         init: function()
         {
@@ -91,6 +124,16 @@
             element.slideUp('fast');
         }
     }
+    JsMoon.scroll = {
+        init: function()
+        {
+            if($.smoothScroll)
+            {
+                $('a').smoothScroll();
+            }
+        }
+    }
+
     JsMoon.date = 
     {
         run: function()
@@ -155,6 +198,8 @@ JsMoon.run = function()
     console.log('JsMoon is now running...');
     JsMoon.toggle.init();
     JsMoon.push.init();
+    JsMoon.side.init();
+    JsMoon.scroll.init();
     JsMoon.notifications.init();
     JsMoon.notifications.run();
     JsMoon.date.run();

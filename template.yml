@@ -23,12 +23,13 @@ img_path: "img/"
 js_path: "js/"
 
 css_includes:
-  - "style.css"
-  - "vendor/font-awesome.min.css"
-  - "vendor/cbp.css"
+    - "style.css"
+    - "vendor/font-awesome.min.css"
+    - "vendor/cbp.css"
 
 js_includes:
-  - "jquery.js"
-  - "moment.min.js"
-  - "moon.js"
+    - "jquery.js"
+    - "moment.min.js"
+    - "jquery.scroll.min.js"
+    - "moon.js"
 
