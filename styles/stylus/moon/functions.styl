@@ -14,6 +14,13 @@ hardize(a_color,val=20%)
     else
         lighten(a_color,val)
 
+
+monochrome(a_color)
+    if light(a_color)
+        rgba(255,255,255,1)    
+    else
+        rgba(0,0,0,1)
+
 transparize(a_color,a_opacity)
     rgba(red(a_color),green(a_color),blue(a_color),a_opacity)
 

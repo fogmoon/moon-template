@@ -74,7 +74,6 @@ a[data-button="modern"]
         color transparize(btn_reg_text_clr,0.6)
     
 *[data-button="simple"]
-    font-weight bold
     color background_color
     text-shadow none
     border solid 1px transparent
@@ -156,6 +155,53 @@ input:hover
     border input_border_width solid transparize(primary_color,0.5)
     box-shadow(inset 0 1px 3px rgba(0, 0, 0, .05)\,0 0 8px transparize(primary_color,0.3))
 
+progress,
+*[data-type="progress"] 
+    background: transparent
+    border: input_border_width solid transparize(secondary_color,0.5)
+    border-radius(2px)
+
+progress[value='100'] span,
+*[data-type="progress"] span
+    background-color: progress_complete
+    border-radius(2px)
+
+progress[value^='9']:not([value^='9.']):not([value='9']) span,
+*[data-type="progress"][value^='9']:not([value^='9.']):not([value='9']) span
+    background-color: progress_high
+
+progress[value^='8']:not([value^='8.']):not([value='8']) span,
+*[data-type="progress"][value^='8']:not([value^='8.']):not([value='8']) span
+    background-color: progress_high
+
+progress[value^='7']:not([value^='7.']):not([value='7']) span,
+*[data-type="progress"][value^='7']:not([value^='7.']):not([value='7'])  span
+    background-color: progress_medium
+
+progress[value^='6']:not([value^='6.']):not([value='6']) span,
+*[data-type="progress"][value^='6']:not([value^='6.']):not([value='6'])  span
+    background-color: progress_medium
+
+progress[value^='5']:not([value^='5.']):not([value='5']) span,
+*[data-type="progress"][value^='5']:not([value^='5.']):not([value='5']) span
+    background-color: progress_medium
+
+progress[value^='4']:not([value^='4.']):not([value='4']) span,
+*[data-type="progress"][value^='4']:not([value^='4.']):not([value='4'])  span
+    background-color: progress_medium
+
+progress[value^='3']:not([value^='3.']):not([value='3']) span,
+*[data-type="progress"][value^='3']:not([value^='3.']):not([value='3']) span
+    background-color: progress_low
+
+progress[value^='2']:not([value^='2.']):not([value='2']) span,
+*[data-type="progress"][value^='2']:not([value^='2.']):not([value='2']) span
+    background-color: progress_low
+
+progress[value^='1']:not([value^='1.']):not([value='1']):not([value='100']) span,
+*[data-type="progress"][value^='1']:not([value='1']):not([value='100']) span
+    background-color: progress_low
+
 /////////////////////////////////////////////////////////
 //                        Forms                        //
 /////////////////////////////////////////////////////////
@@ -181,3 +227,13 @@ section[role="article"]
     font-size 1em
     color transparize(secondary_color,0.3)
     text-align center
+
+/////////////////////////////////////////////////////////
+//                      Headings                       //
+/////////////////////////////////////////////////////////
+
+header
+    h1
+        small
+            color transparize(secondary_color,0.3)
+

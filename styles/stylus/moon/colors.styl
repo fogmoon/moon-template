@@ -64,16 +64,25 @@ btn_reg_shadow_disabled    = softize(btn_reg_shadow_hover)
 
 
 /////////////////////////////////////////////////////////
+//                 Regular button colors                 //
+/////////////////////////////////////////////////////////
+
+progress_low             = transparize(rgba(250,100,0,1),0.5)
+progress_medium          = transparize(rgba(250,150,0,1),0.5)
+progress_high            = transparize(rgba(150,200,0,1),0.5)
+progress_complete        = transparize(rgba(50,250,0,1),0.5)
+
+/////////////////////////////////////////////////////////
 //                    Color modifiers                  //
 /////////////////////////////////////////////////////////
 
-inverted_color = hardize(invert(primary_color),40%)
+inverted_color = saturate(hardize(invert(primary_color),20%),30%)
 
 *[data-type$="inv"],
 *[data-button$="inv"],
 *[data-display$="inv"]
     background-color inverted_color
-    color softize(secondary_color,50%)
+    color invert(monochrome(inverted_color))
     
 btn_reg_bg                = hardize(background_color,8%)
 btn_reg_bg_from            = hardize(background_color,8%)
