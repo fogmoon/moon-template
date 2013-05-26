@@ -11,6 +11,9 @@
         toggle : 
         {
             selector : 'data-toggle'
+        },imgbox : 
+        {
+            selector : 'data-img="box"'
         },
         load : 
         {
@@ -54,6 +57,31 @@
                 $(this).click(function(){$('#'+ $(this).attr(selector)).slideToggle();});
                 $('#'+ $(this).attr(selector)).hide();           
             });
+        }
+    }
+
+    JsMoon.imgbox = {
+        init: function()
+        {
+            if($.colorbox)
+            {
+                var selector = JsMoon.params.imgbox.selector;
+                var elements = $('[' + selector + ']');
+                elements.each(function()
+                {
+                    if( !$(this).parent().is('a') )
+                    {
+                        var link = $('<a></a>').attr('href',$(this).attr('src'));
+                        $(this).wrap(link);
+                    }
+                });
+                elements.parent().colorbox({ 
+                    maxWidth:'90%', 
+                    maxHeight:'90%', 
+                    transition:'none', 
+                    speed:0
+                });
+            }
         }
     }
 
@@ -136,10 +164,12 @@
                     switch(targetPosition) {
                         case 'afterLast':
                             $.get(contentUrl,function(data){targetElement.last().after(data);});
+                            JsMoon.reload();
                         break;
 
                         case 'beforeFirst':
                             $.get(contentUrl,function(data){targetElement.first().before(data);});
+                            JsMoon.reload();
                         break;
                         
                         case 'replace':
@@ -152,14 +182,16 @@
                                     targetElement.remove();
                                     var jdata = $(data).hide();
                                     prevElem.after(jdata);
-                                    jdata.fadeIn()
+                                    jdata.fadeIn();
                                 }
+                                JsMoon.reload();
                             });
                         break;
 
                         case 'inner':
                             $.get(contentUrl,function(data){
                                 targetElement.html(data);
+                                JsMoon.reload();
                             });
                         break;
                     }
@@ -299,8 +331,8 @@
                         dd : "%d jours",
                         M : "un mois",
                         MM : "%d mois",
-                        y : "une année",
-                        yy : "%d années"
+                        y : "un an",
+                        yy : "%d ans"
                     },
                     ordinal : function (number) {
                                 return number + (number === 1 ? 'er' : 'ème');
@@ -316,6 +348,12 @@
                 localLang.lang('fr');
                 $(this).html(localLang.fromNow());
             });
+
+            $('[data-type="age"]').each(function()
+            { 
+                var localLang = moment($(this).html());
+                $(this).html(moment().year() - localLang.year());
+            });
         }
     }
 }
@@ -328,10 +366,18 @@ JsMoon.run = function()
     JsMoon.side.init();
     JsMoon.scroll.init();
     JsMoon.load.init();
+    JsMoon.imgbox.init();
     JsMoon.notifications.init();
     JsMoon.notifications.run();
     JsMoon.date.run();
 }
+
+JsMoon.reload = function()
+{
+    JsMoon.imgbox.init();
+    JsMoon.date.run();
+}
+
 })(jQuery);
 
 JsMoon.run(); 

@@ -26,11 +26,13 @@ css_includes:
     - "style.css"
     - "vendor/font-awesome.min.css"
     - "vendor/cbp.css"
+    - "vendor/colorbox.css"
     - "jsMoon.css"
 
 js_includes:
     - "jquery.js"
     - "moment.min.js"
     - "jquery.scroll.min.js"
+    - "colorbox.min.js"
     - "moon.js"
 

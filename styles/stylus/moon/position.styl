@@ -14,6 +14,9 @@ li
 *[data-display="block"]
     display block
 
+*[data-display="iblock"]
+    display inline-block
+
 body
     centeredPad()
 
@@ -164,15 +167,14 @@ button[data-width="input"]
     font-weight bold
     padding 6px
     margin 4px
-    display block
     text-align center
     font-size 1em
     min-height base_height
 
 
 button,
-a[data-type="button"]
-    display inline-block
+a[data-type="button"],
+a[data-type="clear-button"]
     height 24px
     line-height 24px
     font-size 11px
@@ -267,6 +269,7 @@ form
 
 form[data-align="horizontal"]
     input,
+    textarea,
     select
         display inline-block
     label
@@ -274,6 +277,7 @@ form[data-align="horizontal"]
         
 form[data-align="vertical"]
     input,
+    textarea,
     select,
     label
         display block
@@ -284,6 +288,7 @@ form[data-align="vertical"]
 form[data-align="mixed"]
     label ~ input,
     label ~ select,
+    label ~ textarea,
     button[type="submit"],
     input[type="submit"]
         float right
@@ -306,10 +311,12 @@ form[data-align="mixed"]
 
 form[data-align="labelled"]
     label ~ input,
+    label ~ textarea,
     label ~ select 
         clear right
         display block
     label > input,
+    label > textarea,
     label > select
         margin-left input_margin_right*4
     label
@@ -324,6 +331,7 @@ form[data-align="labelled"]
         min-width 2*base_width
     input + select,
     select + input,
+    label + textarea,
     select + select,
     input + input
         clear right
@@ -391,18 +399,23 @@ progress[value^='1']:not([value^='1.']):not([value='1']):not([value='100']) span
 figure 
     
     display inline-block
-    > img 
+    > img,
+    > a > img
         padding 10px
         vendor('border-radius',2px)
         margin 0px
         border 1px solid rgba(0,0,0,0.1)
 
-figure[data-size="small"] > img
-    padding 5px
-    max-height 45px
-    width auto
+figure[data-size="small"] 
+    > img,
+    > a > img
+        padding 5px
+        max-height 45px
+        width auto
     
-figure[data-size="medium"] > img
-    padding 10px
-    max-height 100px
-    width auto
+figure[data-size="medium"] 
+    > img,
+    > a > img
+        padding 10px
+        max-height 100px
+        width auto
