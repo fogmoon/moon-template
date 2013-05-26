@@ -1,0 +1,89 @@
+
+/* 
+ * ------------------------------------
+ * Horizontal animations right (showed)
+ * to left (hidden) with fade transition
+ * -------------------------------------
+ */
+.horiz-anim-left,
+.horiz-anim-left--showed,
+.horiz-anim-left--showed *,
+.horiz-anim-left--hidden,
+.horiz-anim-left--hidden *
+{
+    -webkit-transition: all 0.2s ease 0;
+       -moz-transition: all 0.2s ease 0;
+         -o-transition: all 0.2s ease 0;
+            transition: all 0.2s ease 0;
+}
+
+.horiz-anim-left--showed
+{
+    position : initial;
+}
+
+.horiz-anim-left--hidden,
+.horiz-anim-left--hidden *
+{
+    position : relative;
+    left : -100px;
+    color : rgba(0,0,0,0.0);
+    background-color : rgba(0,0,0,0.0);
+    border-color : transparent !important;
+}
+
+/* 
+ * ------------------------------------
+ * Horizontal animations left (showed)
+ * to right (hidden) with fade transition
+ * -------------------------------------
+ */
+.horiz-anim-right,
+.horiz-anim-right--showed,
+.horiz-anim-right--showed *,
+.horiz-anim-right--hidden,
+.horiz-anim-right--hidden *
+{
+    position : relative;
+    -webkit-transition: all 1.2s ease 0;
+       -moz-transition: all 0.2s ease 0;
+         -o-transition: all 0.2s ease 0;
+            transition: all 0.2s ease 0;
+}
+
+.horiz-anim-right--showed
+{
+    -webkit-transition: all 1.2s ease 0;
+       -moz-transition: all 0.2s ease 0;
+         -o-transition: all 0.2s ease 0;
+            transition: all 0.2s ease 0;
+    right : 0px;
+}
+
+.horiz-anim-right--hidden,
+.horiz-anim-right--hidden *
+{
+    -webkit-transition: all 1.2s ease 0;
+       -moz-transition: all 0.2s ease 0;
+         -o-transition: all 0.2s ease 0;
+            transition: all 0.2s ease 0;
+    position : relative;
+    right : -100px;
+    color : rgba(0,0,0,0.0);
+    background-color : rgba(0,0,0,0.0);
+    border-color : transparent !important;
+}
+
+.--hidden 
+{
+    -webkit-transition: all 1.2s ease 0;
+       -moz-transition: all 0.2s ease 0;
+         -o-transition: all 0.2s ease 0;
+            transition: all 0.2s ease 0;
+    color : rgba(0,0,0,0.0);
+    background-color : rgba(0,0,0,0.0);
+    border-color : transparent !important;
+
+}
+
+

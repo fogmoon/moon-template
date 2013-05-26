@@ -26,6 +26,7 @@ css_includes:
     - "style.css"
     - "vendor/font-awesome.min.css"
     - "vendor/cbp.css"
+    - "jsMoon.css"
 
 js_includes:
     - "jquery.js"

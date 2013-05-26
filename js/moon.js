@@ -16,7 +16,8 @@
         {
             target : 'data-load-target',
             template : 'data-load-template',
-            position: 'data-load-position'
+            position: 'data-load-position',
+            effect: 'data-load-effect'
         },
         push : 
         {
@@ -56,6 +57,63 @@
         }
     }
 
+    JsMoon.effect = {
+        run: function(target,name)
+        {
+            if(target.jquery == undefined)
+                var target = $(target);
+            if(name == 'none' || name == undefined)
+                return false;
+            else {
+                if(target.hasClass(name + '--hidden'))
+                {
+                    target.removeClass(name + '--hidden').removeClass('--hidden')
+                    .addClass(name + '--showed');
+                }
+                else if(target.hasClass(name + '--showed'))
+                {
+                    target.removeClass(name + '--showed')
+                    .addClass(name + '--hidden');
+                }
+                else
+                {
+                    target.addClass(name + '--hidden');
+                }
+            }
+        },
+        show: function(target,name)
+        {
+            if(target.jquery == undefined)
+                var target = $(target);
+            if(name == 'none' || name == undefined)
+                return false;
+            else 
+            {
+                target.addClass(name + '--showed').removeClass(name + '--hidden').removeClass('--hidden');
+            }
+        },
+        hide: function(target,name)
+        {
+            if(target.jquery == undefined)
+                var target = $(target);
+            if(name == 'none' || name == undefined)
+                return false;
+            else 
+            {
+                target.addClass(name + '--hidden').removeClass(name + '--showed');
+            }
+        },
+        startHidden : function(target)
+        {
+            if(target.jquery == undefined)
+                var target = $(target);
+            target.addClass('--hidden'); 
+        }
+
+
+
+    }
+
     JsMoon.load = {
         init: function()
         {
@@ -63,6 +121,8 @@
             var targetTrigger = $('[' + target + ']');
             var position = JsMoon.params.load.position;
             var template = JsMoon.params.load.template;
+            var effect = JsMoon.params.load.effect;
+
 
             targetTrigger.each(function()
             {
@@ -71,6 +131,7 @@
                     var targetElement = $( $(this).attr(target) );
                     var contentUrl = $(this).attr(template);
                     var targetPosition = $(this).attr(position) || 'replace';
+                    var effectType = $(this).attr(effect) || 'none';
 
                     switch(targetPosition) {
                         case 'afterLast':
@@ -82,10 +143,17 @@
                         break;
                         
                         case 'replace':
-                            $.get(contentUrl,function(data){
-                                var prevElem = targetElement.prev();
-                                targetElement.remove();
-                                prevElem.after(data);
+                            JsMoon.effect.hide(targetElement,'horiz-anim-left');
+                            $.get(contentUrl,function(data)
+                            {
+                                var prevElem = targetElement.first().prev();
+                                if(prevElem && data)
+                                {
+                                    targetElement.remove();
+                                    var jdata = $(data).hide();
+                                    prevElem.after(jdata);
+                                    jdata.fadeIn()
+                                }
                             });
                         break;
 
@@ -152,7 +220,9 @@
                     });
                     menuElement.toggleClass('cbp-spmenu-open');
                 });
-                menuElement.find('a[data-role="close-side"]').click(function(){button.trigger('click');});
+                menuElement.find('a[data-role="close-side"]').click(function(){
+                    menuElement.removeClass('cbp-spmenu-open');
+                });
             });
         }
     }
