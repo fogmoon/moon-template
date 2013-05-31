@@ -28,6 +28,11 @@
             direction : 'data-push-direction',
             menu : 'data-push-menu'
         },
+        markdown : 
+        {
+            selector : 'data-type="markdown"',
+            source : 'data-source'
+        },
         side : 
         {
             selector : 'data-role="side"',
@@ -54,11 +59,67 @@
             var elements = $('[' + selector + ']');
             elements.each(function()
             {
-                $(this).click(function(){$('#'+ $(this).attr(selector)).slideToggle();});
-                $('#'+ $(this).attr(selector)).hide();           
+                if($(this).is('option'))
+                {
+                    $(this).parent().change(function()
+                    {
+                        $(this).children('option:selected['+selector+']').each(function(){
+                                   $('#'+ $(this).attr(selector)).slideToggle();
+                        });
+                    });
+                }
+                else
+                {
+                    $(this).click(function(){$('#'+ $(this).attr(selector)).slideToggle();})
+                }
+                $('#'+ $(this).attr(selector)).hide();
             });
         }
     }
+
+    JsMoon.markdown = {
+        init: function()
+        {
+            var convert = function(source,element,converter)
+            {
+                var toConvert = source.html() || source.val();
+                var converted = converter.makeHtml(toConvert);
+                element.html(converted);
+                element.each(function(i, e) {hljs.highlightBlock(e)});
+            }
+
+            if(Markdown)
+            {
+                var selector = JsMoon.params.markdown.selector;
+                var elements = $('[' + selector + ']');
+                var sourceSelector = JsMoon.params.markdown.source;
+                var converter = Markdown.getSanitizingConverter();
+                converter.hooks.chain('preBlockGamut',function(text,rbg)
+                {
+                    return text.replace(/^ {0,3}``` *\n((?:.*?\n)+?) {0,3}``` *$/gm, function (whole, inner) 
+                    {
+                        return "<prout><code>" + rbg(inner) + "</code></prout>\n";
+                    });
+                });
+
+                elements.each(function()
+                {
+                    var source = $(this).attr(sourceSelector);
+                    if(source)
+                    {
+                        source = $(source).first();
+                        var element = $(this);
+                        convert(source,element,converter);
+                        source.change(function()
+                        {
+                            convert($(this),element,converter);
+                        });
+                    }
+                });
+            }
+        }
+    }
+
 
     JsMoon.imgbox = {
         init: function()
@@ -158,7 +219,7 @@
                 {
                     var targetElement = $( $(this).attr(target) );
                     var contentUrl = $(this).attr(template);
-                    var targetPosition = $(this).attr(position) || 'replace';
+                    var targetPosition = $(this).attr(position) || 'inner';
                     var effectType = $(this).attr(effect) || 'none';
 
                     switch(targetPosition) {
@@ -370,12 +431,14 @@ JsMoon.run = function()
     JsMoon.notifications.init();
     JsMoon.notifications.run();
     JsMoon.date.run();
+    JsMoon.markdown.init();
 }
 
 JsMoon.reload = function()
 {
     JsMoon.imgbox.init();
     JsMoon.date.run();
+    JsMoon.markdown.init();
 }
 
 })(jQuery);
