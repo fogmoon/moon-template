@@ -27,6 +27,7 @@ css_includes:
     - "vendor/font-awesome.min.css"
     - "vendor/cbp.css"
     - "vendor/colorbox.css"
+    - "vendor/code.css"
     - "jsMoon.css"
 
 js_includes:
@@ -34,5 +35,9 @@ js_includes:
     - "moment.min.js"
     - "jquery.scroll.min.js"
     - "colorbox.min.js"
+    - "highlight.pack.js"
+    - "Markdown.Converter.js"
+    - "Markdown.Editor.js"
+    - "Markdown.Sanitizer.js"
     - "moon.js"
 

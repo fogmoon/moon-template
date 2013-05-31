@@ -1,4 +1,7 @@
 
+
+/** Dependances */
+
 .cbp-spmenu {
 background: #47a3da;
 position: fixed;
@@ -31,7 +34,18 @@ color: #47a3da;
 
 /* Orientation-dependent styles for the content of the menu */
 
-.cbp-spmenu-vertical {
+.cbp-spmenu-vertical
+{
+width: 240px;
+}
+
+aside[data-display="column"]
+{
+    width: 210px;
+}
+
+.cbp-spmenu-vertical
+{
 width: 240px;
 height: 100%;
 top: 0;
@@ -145,9 +159,16 @@ bottom: -110px;
 
 @media screen and (max-height: 26.375em){
 
-    .cbp-spmenu-vertical {
+    .cbp-spmenu-vertical
+    {
         font-size: 90%;
-width: 190px;
+        width: 190px;
+    }
+
+    aside[data-display="column"]
+    {
+        width: 160px;
+        margin: 10px 15px;
     }
 
     .cbp-spmenu-left,

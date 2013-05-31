@@ -8,8 +8,34 @@
 a
     text-decoration initial
 
+ul
+    padding 0px
+    margin 0px
+
+p
+    margin 5px auto
+
+h1,
+h2,
+h3,
+h4
+    margin 10px auto
+
 li
     list-style none
+        
+h1
+    font-size 2em
+h2
+    font-size 1.5em
+h3
+    font-size 1.2em
+h4
+    font-size 1em
+h5
+    font-size 0.8em
+h6
+    font-size 0.5em
 
 *[data-display="block"]
     display block
@@ -34,55 +60,52 @@ body
                     text-align center
                     margin (main-width / 100)
                     list-style none
+        > h1
+            font-size 3em
 
     header
         margin (elt-margin/2) 0
         padding (elt-margin/2) 0px
-        
+
+*[data-role="container"]
+    display -webkit-flex
+    display -moz-flex
+    display flex
+    vendor(flex-flow,row wrap)
+    //vendor(box-pack, center)
+
+    nav[data-display="column"],
+    aside[data-display="column"]
+        vendor(flex-direction,column)
+        display -webkit-flex
+        display -moz-flex
+        display flex
+        margin 10px 30px
+        *[data-align="center"]            
+            display: -webkit-box;
+            -webkit-box-pack: center; 
+        + *
+            margin-right 240px
+
     > section
-        > header
-            font-size 1.2em
-            font-weight bold
-            > h3
-                font-size 0.8em
-                font-weight normal
-
+        vendor(flex,1 0 300px)
         > article
-            > aside:only-of-type
-                float left
-                width 20%
-                margin-left -25%
-                font-size 12px
-                line-height 1.8
-            margin 0 0 20px 0px
-            display inline-table
-            
-        > article[data-aside="true"]
-            margin 0 0 20px 20%
-    
-    > section[data-space="left"]
-        margin-left 20%
-        width 80%
+            vendor(flex,1 100%)
 
-    > aside[data-spacer="left"]
-        position fixed
-        max-width 20%
-        > ul
-            margin 0
-            padding 0
-            text-align center
+article
+    h1
+        font-size 1.5em
+    h2
+        font-size 1.2em
+    h3
+        font-size 1em
+    h4
+        font-size 0.9em
+    h5
+        font-size 0.8em
+    h6
+        font-size 0.7em
 
-    > aside + section
-        display inline-block
-
-    > aside
-        padding 0px 1%
-        display inline-block
-        vertical-align top
-
-    > footer
-        display block
-        
 
 /////////////////////////////////////////////////////////
 //                    Sections(s)                    //
@@ -165,7 +188,7 @@ button[data-width="input"]
 *[data-button="simple"],
 *[data-button="simple-inv"]
     font-weight bold
-    padding 6px
+    padding 6px 30px
     margin 4px
     text-align center
     font-size 1em
@@ -269,11 +292,15 @@ form
 
 form[data-align="horizontal"]
     input,
+    button,
     textarea,
     select
         display inline-block
     label
         margin-left 10px
+    *[type="submit"]
+        clear both
+        float right
         
 form[data-align="vertical"]
     input,
@@ -284,6 +311,9 @@ form[data-align="vertical"]
     input + label,
     select + label
         margin-top 10px
+    *[type="submit"]
+        clear both
+        float right
 
 form[data-align="mixed"]
     label ~ input,
@@ -419,3 +449,10 @@ figure[data-size="medium"]
         padding 10px
         max-height 100px
         width auto
+
+/////////////////////////////////////////////////////////
+//                     Navigation                      //
+/////////////////////////////////////////////////////////
+
+nav
+    padding-bottom 15px
