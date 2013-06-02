@@ -14,12 +14,14 @@ ul
 
 p
     margin 5px auto
+    line-height normal
 
 h1,
 h2,
 h3,
 h4
     margin 10px auto
+    line-height normal
 
 li
     list-style none
@@ -104,6 +106,7 @@ section[data-align="center"]
         vendor(flex,1 0 300px)
 
 article
+    margin-top 20px
     h1
         font-size 1.5em
     h2
@@ -192,7 +195,6 @@ button[data-button="push"]
 
 button[data-width="input"]
     width base_width
-    height base_height
     padding input_padding_top input_padding_right
     margin input_margin_top input_margin_right
 
@@ -204,13 +206,12 @@ button[data-width="input"]
     text-align center
     font-size 1em
     min-height base_height
+    line-height base_height
 
 
 button,
 a[data-type="button"],
 a[data-type="clear-button"]
-    height 24px
-    line-height 24px
     font-size 11px
     padding 0 7px 0 7px
     margin 4px
@@ -257,6 +258,7 @@ a[data-type="clear-button"]
 form
     select,
     textarea,
+    button,
     input[type="text"],
     input[type="password"],
     input[type="datetime"],
@@ -272,7 +274,6 @@ form
     input[type="tel"],
     input[type="color"]
         width base_width
-        height base_height
         padding input_padding_top input_padding_right
         margin input_margin_top input_margin_right
     select
@@ -312,6 +313,8 @@ form[data-align="horizontal"]
     *[type="submit"]
         clear both
         float right
+    span
+        display inline-block
         
 form[data-align="vertical"]
     input,
@@ -324,12 +327,16 @@ form[data-align="vertical"]
         margin-top 10px
     *[type="submit"]
         clear both
+    span
+        display block
+        clear both
 
 form[data-align="mixed"]
     label ~ input,
     label ~ select,
     label ~ textarea,
     button[type="submit"],
+    select + div.minict_wrapper,
     input[type="submit"]
         float right
         clear right
@@ -348,6 +355,9 @@ form[data-align="mixed"]
         padding input_padding_top input_padding_right
         margin input_margin_top 6*input_margin_right input_margin_top input_margin_right
         height base_height + 2*input_border_width
+    span
+        display block
+        clear both
 
 form[data-align="labelled"]
     label ~ input,

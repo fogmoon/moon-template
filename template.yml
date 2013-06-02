@@ -23,18 +23,20 @@ img_path: "img/"
 js_path: "js/"
 
 css_includes:
-    - "style.css"
     - "vendor/font-awesome.min.css"
     - "vendor/cbp.css"
     - "vendor/colorbox.css"
     - "vendor/code.css"
+    - "vendor/minimalect.min.css"
     - "jsMoon.css"
+    - "style.css"
 
 js_includes:
     - "jquery.js"
     - "log.js"
     - "moment.min.js"
     - "jquery.scroll.min.js"
+    - "minimalect.js"
     - "colorbox.min.js"
     - "highlight.pack.js"
     - "Markdown.Converter.js"
