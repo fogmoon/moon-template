@@ -11,7 +11,12 @@
         toggle : 
         {
             selector : 'data-toggle'
-        },imgbox : 
+        },
+        hover : 
+        {
+            selector : 'data-hover'
+        },
+        imgbox : 
         {
             selector : 'data-img="box"'
         },
@@ -77,6 +82,34 @@
         }
     }
 
+    JsMoon.hover = {
+        init: function()
+        {
+            var selector = JsMoon.params.hover.selector;
+            var elements = $('[' + selector + ']');
+            elements.each(function()
+            {
+                var triggerElt = $(this).attr(selector);
+                var target = undefined
+                var element = $(this);
+                switch(triggerElt)
+                {
+                    case 'parent':
+                        target = $(this).parent();
+                        break;
+                    default:
+                        target = $(triggerElt);
+                        break;
+                }
+                target.hover(
+                    function(){ element.show(); },
+                    function(){ element.hide(); }
+                );
+                $(this).hide();
+            });
+        }
+    }
+
     JsMoon.markdown = {
         init: function()
         {
@@ -120,7 +153,6 @@
         }
     }
 
-
     JsMoon.imgbox = {
         init: function()
         {
@@ -145,7 +177,6 @@
             }
         }
     }
-
     JsMoon.effect = {
         run: function(target,name)
         {
@@ -427,6 +458,7 @@ JsMoon.run = function()
     JsMoon.side.init();
     JsMoon.scroll.init();
     JsMoon.load.init();
+    JsMoon.hover.init();
     JsMoon.imgbox.init();
     JsMoon.notifications.init();
     JsMoon.notifications.run();
@@ -439,6 +471,7 @@ JsMoon.reload = function()
     JsMoon.imgbox.init();
     JsMoon.date.run();
     JsMoon.markdown.init();
+    JsMoon.hover.init();
 }
 
 })(jQuery);
