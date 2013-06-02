@@ -67,6 +67,13 @@ body
         margin (elt-margin/2) 0
         padding (elt-margin/2) 0px
 
+section[data-align="center"]
+    display -webkit-flex
+    display -moz-flex
+    display flex
+    vendor(flex,1 100%)
+    vendor(justify-content,center)
+
 *[data-role="container"]
     display -webkit-flex
     display -moz-flex
@@ -82,15 +89,19 @@ body
         display flex
         margin 10px 30px
         *[data-align="center"]            
-            display: -webkit-box;
-            -webkit-box-pack: center; 
+            display: -webkit-flex;
+            vendor(justify-content,center)
         + *
             margin-right 240px
+    > nav:not(.cbp-spmenu)
+        padding-top 15px
+        display -webkit-flex
+        display -moz-flex
+        display flex
+        vendor(justify-content,center)
 
-    > section
+    > section[data-role="content"]
         vendor(flex,1 0 300px)
-        > article
-            vendor(flex,1 100%)
 
 article
     h1
@@ -313,7 +324,6 @@ form[data-align="vertical"]
         margin-top 10px
     *[type="submit"]
         clear both
-        float right
 
 form[data-align="mixed"]
     label ~ input,

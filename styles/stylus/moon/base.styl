@@ -128,13 +128,21 @@ a[data-button="modern"]
 //                          Fields                       //
 /////////////////////////////////////////////////////////
 
-
 select,
 textarea,
 input
     outline: none;
     border-radius(2px)
     color btn_reg_text_clr
+    border input_border_width solid btn_reg_border
+    makeItMove(0.1s,all,linear)
+    box-shadow(inset 0 1px 3px rgba(0, 0, 0, .05)\,0 1px 0 rgba(255, 255, 255, .075))
+
+input:-webkit-autofill
+    outline: none;
+    border-radius(2px)
+    background-color transparent !important
+    color btn_reg_text_clr !important
     border input_border_width solid btn_reg_border
     makeItMove(0.1s,all,linear)
     box-shadow(inset 0 1px 3px rgba(0, 0, 0, .05)\,0 1px 0 rgba(255, 255, 255, .075))
@@ -147,14 +155,12 @@ textarea:focus:hover,
 input:focus:hover
     outline: none;
     border input_border_width solid primary_color
-    box-shadow(inset 0 1px 3px rgba(0, 0, 0, .05)\,0 0 8px transparize(primary_color,0.7))
 
 select:hover,
 textarea:hover,
 input:hover
     outline none
     border input_border_width solid transparize(primary_color,0.5)
-    box-shadow(inset 0 1px 3px rgba(0, 0, 0, .05)\,0 0 8px transparize(primary_color,0.3))
 
 progress,
 *[data-type="progress"] 
@@ -207,14 +213,85 @@ progress[value^='1']:not([value^='1.']):not([value='1']):not([value='100']) span
 //                        Forms                        //
 /////////////////////////////////////////////////////////
 
+
 form[data-type="smart-input"]
+    
+    old_p = primary_color
+    
+    &[data-style="white"]
+        old_p = rgba(255,255,255,1) 
+        input
+            background-color transparize(old_p,0.0)
+            color transparize(old_p,0.8);
+            font-size 1.2rem
+            width 100%
+            border input_border_width dashed transparent
+            border-bottom input_border_width dashed transparize(old_p,0.2)
+            border-radius(0px)
+            margin-top 20px
+            box-shadow(inset 0 1px 3px rgba(0,0,0,0)\,0 0 8px rgba(0,0,0,0))
+        input::-webkit-input-placeholder
+            color transparize(old_p,0.5)
+        input::-ms-input-placeholder
+            color transparize(old_p,0.5)
+        input:-moz-placeholder
+            color transparize(old_p,0.5)
+        input::-moz-placeholder
+            color transparize(old_p,0.5)
+        input:hover
+            border-bottom input_border_width dashed transparize(old_p,0.5)
+
+        *[type="submit"]
+            margin auto
+            margin-top 10px
+            padding 0
+            height 30px
+        select:focus,
+        textarea:focus,
+        input:focus,
+        select:focus:hover,
+        textarea:focus:hover,
+        input:focus:hover
+            outline: none;
+            border input_border_width dashed transparent
+            background-color transparize(old_p,0.1)
+
     input
-        background-color transparent
-        border input_border_width solid transparent
+        background-color transparize(old_p,0.0)
+        color transparize(old_p,0.8);
+        font-size 1.2rem
+        width 100%
+        border input_border_width dashed transparent
+        border-bottom input_border_width dashed transparize(old_p,0.2)
         border-radius(0px)
+        margin-top 20px
         box-shadow(inset 0 1px 3px rgba(0,0,0,0)\,0 0 8px rgba(0,0,0,0))
+    input::-webkit-input-placeholder
+        color transparize(old_p,0.5)
+    input::-ms-input-placeholder
+        color transparize(old_p,0.5)
+    input:-moz-placeholder
+        color transparize(old_p,0.5)
+    input::-moz-placeholder
+        color transparize(old_p,0.5)
     input:hover
-        border-bottom input_border_width solid primary_color
+        border-bottom input_border_width dashed transparize(old_p,0.5)
+
+    *[type="submit"]
+        margin auto
+        margin-top 10px
+        padding 0
+        height 30px
+    select:focus,
+    textarea:focus,
+    input:focus,
+    select:focus:hover,
+    textarea:focus:hover,
+    input:focus:hover
+        outline: none;
+        border input_border_width dashed transparent
+        background-color transparize(old_p,0.1)
+
 
 /////////////////////////////////////////////////////////
 //                      Articles                       //
