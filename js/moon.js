@@ -109,7 +109,15 @@
             });
         }
     }
-
+    JsMoon.formElementFormatter = {
+        init: function()
+        {
+            if($.fn.minimalect)
+            {
+                $('select').minimalect();
+            }
+        }
+    }
     JsMoon.markdown = {
         init: function()
         {
@@ -459,8 +467,9 @@ JsMoon.run = function()
     JsMoon.scroll.init();
     JsMoon.load.init();
     JsMoon.hover.init();
-    JsMoon.imgbox.init();
     JsMoon.notifications.init();
+    JsMoon.imgbox.init();
+    JsMoon.formElementFormatter.init();
     JsMoon.notifications.run();
     JsMoon.date.run();
     JsMoon.markdown.init();
@@ -471,6 +480,7 @@ JsMoon.reload = function()
     JsMoon.imgbox.init();
     JsMoon.date.run();
     JsMoon.markdown.init();
+    JsMoon.formElementFormatter.init();
     JsMoon.hover.init();
 }
 
