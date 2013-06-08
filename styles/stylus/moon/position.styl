@@ -284,12 +284,14 @@ form
             
 form
     label ~ input,
+    label ~ select ~ div > input,
     label ~ select 
         float right
         clear right
         display block
     label > input,
-    label > select
+    label > select,
+    label > div > input
         margin-left input_margin_right*4
     label
         float left
@@ -338,17 +340,14 @@ form[data-align="mixed"]
     button[type="submit"],
     select + div.minict_wrapper,
     input[type="submit"]
-        float right
-        clear right
         display block
     label ~ input[type="date"]
         display -webkit-inline-box
     label > input,
+    label + select + div.minict_wrapper > input,
     label > select
         margin-left input_margin_right*4
     label
-        float left
-        clear both
         display block
         vertical-align middle
         line-height base_height + 2*input_border_width
@@ -356,8 +355,11 @@ form[data-align="mixed"]
         margin input_margin_top 6*input_margin_right input_margin_top input_margin_right
         height base_height + 2*input_border_width
     span
-        display block
+        display -webkit-flex
+        -webkit-justify-content space-between
+        width 600px
         clear both
+
 
 form[data-align="labelled"]
     label ~ input,
