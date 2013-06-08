@@ -477,6 +477,7 @@ JsMoon.run = function()
 
 JsMoon.reload = function()
 {
+    JsMoon.toggle.init();
     JsMoon.imgbox.init();
     JsMoon.date.run();
     JsMoon.markdown.init();
