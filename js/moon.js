@@ -251,51 +251,71 @@
             var template = JsMoon.params.load.template;
             var effect = JsMoon.params.load.effect;
 
+            var exection = function(element)
+            {
+                console.log("exection !");
+                var targetElement = $( element.attr(target) );
+                var contentUrl = element.attr(template);
+                var targetPosition = element.attr(position) || 'inner';
+                var effectType = element.attr(effect) || 'none';
+
+                switch(targetPosition) {
+                    case 'afterLast':
+                        $.get(contentUrl,function(data){targetElement.last().after(data);});
+                        JsMoon.reload();
+                    break;
+
+                    case 'beforeFirst':
+                        $.get(contentUrl,function(data){targetElement.first().before(data);});
+                        JsMoon.reload();
+                    break;
+ 
+                    case 'replace':
+                        JsMoon.effect.hide(targetElement,'horiz-anim-left');
+                        $.get(contentUrl,function(data)
+                        {
+                            var prevElem = targetElement.first().prev();
+                            if(prevElem && data)
+                            {
+                                targetElement.remove();
+                                var jdata = $(data).hide();
+                                prevElem.after(jdata);
+                                jdata.fadeIn();
+                            }
+                            JsMoon.reload();
+                        });
+                    break;
+
+                    case 'inner':
+                        $.get(contentUrl,function(data){
+                            targetElement.html(data);
+                            JsMoon.reload();
+                        });
+                    break;
+                }
+
+            }
 
             targetTrigger.each(function()
             {
-                $(this).click(function()
+                if($(this).is('option'))
                 {
-                    var targetElement = $( $(this).attr(target) );
-                    var contentUrl = $(this).attr(template);
-                    var targetPosition = $(this).attr(position) || 'inner';
-                    var effectType = $(this).attr(effect) || 'none';
-
-                    switch(targetPosition) {
-                        case 'afterLast':
-                            $.get(contentUrl,function(data){targetElement.last().after(data);});
-                            JsMoon.reload();
-                        break;
-
-                        case 'beforeFirst':
-                            $.get(contentUrl,function(data){targetElement.first().before(data);});
-                            JsMoon.reload();
-                        break;
-                        
-                        case 'replace':
-                            JsMoon.effect.hide(targetElement,'horiz-anim-left');
-                            $.get(contentUrl,function(data)
-                            {
-                                var prevElem = targetElement.first().prev();
-                                if(prevElem && data)
-                                {
-                                    targetElement.remove();
-                                    var jdata = $(data).hide();
-                                    prevElem.after(jdata);
-                                    jdata.fadeIn();
-                                }
-                                JsMoon.reload();
-                            });
-                        break;
-
-                        case 'inner':
-                            $.get(contentUrl,function(data){
-                                targetElement.html(data);
-                                JsMoon.reload();
-                            });
-                        break;
-                    }
-                });
+                    $(this).parent().change(function()
+                    {
+                        $(this).children('option:selected['+target+']').each(function()
+                        {
+                            exection($(this));
+                            console.log("click select !");
+                        });
+                    });
+                }
+                else
+                {
+                    $(this).click(function()
+                    {
+                        exection($(this));
+                    });
+                }
             });
 
         }
@@ -392,7 +412,6 @@
             }
         }
     }
-
     JsMoon.date = 
     {
         run: function()
@@ -483,6 +502,7 @@ JsMoon.reload = function()
     JsMoon.markdown.init();
     JsMoon.formElementFormatter.init();
     JsMoon.hover.init();
+    JsMoon.load.init();
 }
 
 })(jQuery);
