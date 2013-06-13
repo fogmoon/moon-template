@@ -387,12 +387,16 @@
 			// show it up in the input
 			wr.children("input").val(ch.text()).attr("placeholder", ch.text());
 
-			// update the original select element
-			el.find("option:selected").prop("selected", false);
-			el.find('option[value="'+ch.attr("data-value")+'"]').prop("selected", true);
-            el.trigger('change');
+			// if we click on another choice
+            if(el.find("option:selected").val() != ch.attr("data-value"))
+            {
+                // update the original select element
+                el.find("option:selected").prop("selected", false);
+                el.find('option[value="'+ch.attr("data-value")+'"]').prop("selected", true);
+                el.trigger('change');
+            }
 			// callback
-			this.options.onchange(ch.attr("data-value"), ch.text());
+			//this.options.onchange(ch.attr("data-value"), ch.text());
 		},
 
 		// keep the first and last classes up-to-date

@@ -105,6 +105,22 @@ input[type="radio"]:checked + .radio span:before {
     vendor(animation,pulse .25s)
 }
 
+button.loading,
+input.loading
+    vendor(transition, 1s ease)
+    padding-right 20px
+
+    i.icon-spin
+        margin-left 30px
+
+button.success,
+input.success
+    vendor(transition, 1s ease)
+    padding-right 20px
+
+    i
+        margin-left 30px
+
 .minict_wrapper
     border none
 

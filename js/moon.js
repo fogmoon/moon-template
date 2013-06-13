@@ -27,6 +27,12 @@
             position: 'data-load-position',
             effect: 'data-load-effect'
         },
+        ajaxForm : 
+        {
+            target : 'data-ajax-form',
+            success : 'data-ajax-on-success',
+            fail : 'data-ajax-on-fail',
+        },
         push : 
         {
             selector : 'data-role="push"',
@@ -242,6 +248,68 @@
 
     }
 
+    JsMoon.ajaxForm = {
+        init: function()
+        {
+            function showRequest(formData, jqForm, options) { 
+                // var formElement = jqForm[0]; 
+                var elt = jqForm.find('[type="submit"]');
+                if(!elt.find('i').length)
+                { elt.html(elt.html() + '<i class="icon-refresh icon-spin"></i> ').addClass('loading'); }
+                return true; 
+            } 
+
+            function showResponse(responseText, statusText, xhr, $form)  {
+                var elt = $form.find('[type="submit"]');
+                elt.find('i.icon-spin').fadeOut().removeClass('icon-refresh icon-spin').addClass('icon-ok').fadeIn();
+                elt.removeClass('loading').addClass('success');
+                $form.slideUp();
+                if(responseText == 'ok' || parseInt(responseText) > 0)
+                {
+                    var cbs = elt.attr(JsMoon.params.ajaxForm.success);
+                    if(cbs !== undefined)
+                    {
+                        eval(cbs + '(responseText, statusText, xhr, $form)');
+                    }
+                }
+                else
+                {
+                    var cbf = elt.attr(JsMoon.params.ajaxForm.fail);
+                    if(cbf !== undefined)
+                    {
+                        eval(cbf + '(responseText, statusText, xhr, $form)');
+                    }
+                }
+            }
+
+            if($.fn.ajaxForm)
+            {
+                var target = JsMoon.params.ajaxForm.target;
+                var targetTrigger = $('[' + target + ']');
+                var template = JsMoon.params.ajaxForm.template;
+                var successCallback = JsMoon.params.ajaxForm.success;
+                var failCallback = JsMoon.params.ajaxForm.fail;
+
+                targetTrigger.each(function()
+                {
+                    var form = $(this).parents('form').first();
+                    var elt = $('<input type="hidden" name="ajaxForm" value="true"/>');
+                    form.append(elt);
+                    form.ajaxForm(
+                    {
+                        beforeSubmit:   showRequest,
+                        success:        showResponse
+                    });
+
+                });
+            }
+            else
+            {
+                console.log("Error : Fail to find AjaxForm.");
+            }
+        }
+    }
+
     JsMoon.load = {
         init: function()
         {
@@ -288,7 +356,9 @@
 
                     case 'inner':
                         $.get(contentUrl,function(data){
-                            targetElement.html(data);
+                            var jdata = $(data).hide();
+                            targetElement.html(jdata);
+                            jdata.fadeIn();
                             JsMoon.reload();
                         });
                     break;
@@ -300,20 +370,20 @@
             {
                 if($(this).is('option'))
                 {
-                    $(this).parent().change(function()
+                    $(this).parent().change(function(event)
                     {
-                        $(this).children('option:selected['+target+']').each(function()
-                        {
-                            exection($(this));
-                            console.log("click select !");
-                        });
+                        event.stopImmediatePropagation();
+                        exection($(this).children('option:selected['+target+']').first());
+                        console.log("change select !");
                     });
                 }
                 else
                 {
-                    $(this).click(function()
+                    $(this).click(function(event)
                     {
+                        event.stopImmediatePropagation();
                         exection($(this));
+                        console.log("click select !");
                     });
                 }
             });
@@ -492,6 +562,7 @@ JsMoon.run = function()
     JsMoon.notifications.run();
     JsMoon.date.run();
     JsMoon.markdown.init();
+    JsMoon.ajaxForm.init();
 }
 
 JsMoon.reload = function()
@@ -503,6 +574,7 @@ JsMoon.reload = function()
     JsMoon.formElementFormatter.init();
     JsMoon.hover.init();
     JsMoon.load.init();
+    JsMoon.ajaxForm.init();
 }
 
 })(jQuery);

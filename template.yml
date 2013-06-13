@@ -33,6 +33,7 @@ css_includes:
 
 js_includes:
     - "jquery.js"
+    - "jquery.form.js"
     - "log.js"
     - "moment.min.js"
     - "jquery.scroll.min.js"
