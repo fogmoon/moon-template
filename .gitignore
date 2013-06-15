@@ -6,3 +6,4 @@ twig/header.twig
 *.swo
 *.swn
 three
+*~
