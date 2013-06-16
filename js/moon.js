@@ -25,6 +25,7 @@
             target : 'data-load-target',
             template : 'data-load-template',
             position: 'data-load-position',
+            callback: 'data-load-callback',
             effect: 'data-load-effect'
         },
         ajaxForm : 
@@ -311,6 +312,53 @@
     }
 
     JsMoon.load = {
+
+
+
+        ajaxReplace: function(targetElement,contentUrl)
+        {
+            JsMoon.effect.hide(targetElement,'horiz-anim-left');
+            $.get(contentUrl,function(data)
+            {
+                var prevElem = targetElement.first().prev();
+                if(prevElem && data)
+                {
+                    targetElement.remove();
+                    var jdata = $(data).hide();
+                    prevElem.after(jdata);
+                    jdata.fadeIn();
+                }
+                JsMoon.reload();
+                JsMoon.effect.show(targetElement,'horiz-anim-left');
+            });
+
+        },
+        ajaxInner: function(targetElement,contentUrl)
+        {
+            JsMoon.effect.hide(targetElement,'horiz-anim-left');
+            $.get(contentUrl,function(data)
+            {
+                var jdata = $(data).hide();
+                targetElement.html(jdata);
+                jdata.fadeIn();
+                JsMoon.reload();
+            });
+            JsMoon.effect.show(targetElement,'horiz-anim-left');
+        },
+        hideOnSuccess: function(targetElement,contentUrl)
+        {
+            $.get(contentUrl,function(data)
+            {
+                if(data == 'ok' || parseInt(data) > 0)
+                {
+                    targetElement.fadeOut().remove();
+                }
+                else {
+                    targetElement.addClass('error');
+                }
+                JsMoon.reload();
+            });
+        },
         init: function()
         {
             var target = JsMoon.params.load.target;
@@ -321,7 +369,6 @@
 
             var exection = function(element)
             {
-                console.log("exection !");
                 var targetElement = $( element.attr(target) );
                 var contentUrl = element.attr(template);
                 var targetPosition = element.attr(position) || 'inner';
@@ -339,28 +386,15 @@
                     break;
  
                     case 'replace':
-                        JsMoon.effect.hide(targetElement,'horiz-anim-left');
-                        $.get(contentUrl,function(data)
-                        {
-                            var prevElem = targetElement.first().prev();
-                            if(prevElem && data)
-                            {
-                                targetElement.remove();
-                                var jdata = $(data).hide();
-                                prevElem.after(jdata);
-                                jdata.fadeIn();
-                            }
-                            JsMoon.reload();
-                        });
+                        JsMoon.load.ajaxReplace(targetElement,contentUrl);
                     break;
 
                     case 'inner':
-                        $.get(contentUrl,function(data){
-                            var jdata = $(data).hide();
-                            targetElement.html(jdata);
-                            jdata.fadeIn();
-                            JsMoon.reload();
-                        });
+                        JsMoon.load.ajaxInner(targetElement,contentUrl);
+
+                    case 'hideOnSuccess':
+                        JsMoon.load.hideOnSuccess(targetElement,contentUrl);
+
                     break;
                 }
 
@@ -533,14 +567,14 @@
                 });
             $('[data-type="date"]').each(function()
             { 
-                var localLang = moment($(this).html());
+                var localLang = moment($(this).attr('data-date') || $(this).html());
                 localLang.lang('fr');
                 $(this).html(localLang.fromNow());
             });
 
             $('[data-type="age"]').each(function()
             { 
-                var localLang = moment($(this).html());
+                var localLang = moment($(this).attr('data-date') || $(this).html());
                 $(this).html(moment().year() - localLang.year());
             });
         }
