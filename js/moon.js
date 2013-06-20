@@ -20,6 +20,10 @@
         {
             selector : 'data-img="box"'
         },
+        mix : 
+        {
+            selector : 'data-mix'
+        },
         load : 
         {
             target : 'data-load-target',
@@ -192,6 +196,23 @@
             }
         }
     }
+
+    JsMoon.mix = {
+        init: function()
+        {
+            if($.fn.mixitup)
+            {
+                var selector = JsMoon.params.mix.selector;
+                $('[' + selector + ']').mixitup({
+                    layoutMode: 'list', // Start in list mode (display: block) by default
+                    listClass: 'list', // Container class for when in list mode
+                    listEffects: ['fade','blur'], // List of effects ONLY for list mode
+                    easing: 'snap'
+                });
+            }
+        }
+    }
+
     JsMoon.effect = {
         run: function(target,name)
         {
@@ -597,6 +618,7 @@ JsMoon.run = function()
     JsMoon.date.run();
     JsMoon.markdown.init();
     JsMoon.ajaxForm.init();
+    JsMoon.mix.init();
 }
 
 JsMoon.reload = function()
@@ -608,6 +630,7 @@ JsMoon.reload = function()
     JsMoon.formElementFormatter.init();
     JsMoon.hover.init();
     JsMoon.load.init();
+    JsMoon.mix.init();
     JsMoon.ajaxForm.init();
 }
 

@@ -15,3 +15,20 @@ body
 form
     select
         background-color #FFF
+
+
+nav[data-role="toolbar"]
+
+    padding 5px auto
+    vertical-align sub
+    ul
+        display -webkit-flex
+        display -moz-flex
+        display flex
+        vendor(justify-content,flex-start)
+        vendor(align-items,stretch)
+        vendor(flex-flow,row wrap)
+        li
+            color primary_color
+            text-align center
+            padding 5px

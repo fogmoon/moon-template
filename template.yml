@@ -42,6 +42,7 @@ js_includes:
     - "highlight.pack.js"
     - "Markdown.Converter.js"
     - "Markdown.Editor.js"
+    - "mixitup.min.js"
     - "Markdown.Sanitizer.js"
     - "moon.js"
 

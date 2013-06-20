@@ -91,7 +91,9 @@ section[data-align="center"]
         display flex
         margin 10px 30px
         *[data-align="center"]            
-            display: -webkit-flex;
+            display -webkit-flex
+            display -moz-flex
+            display flex
             vendor(justify-content,center)
         + *
             margin-right 240px
