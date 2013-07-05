@@ -34,7 +34,10 @@ css_includes:
 js_includes:
     - "jquery.js"
     - "jquery.form.js"
+    - "modernizr.js"
+    - "menu.js"
     - "log.js"
+    - "progression.min.js"
     - "moment.min.js"
     - "jquery.scroll.min.js"
     - "minimalect.js"

@@ -1,4 +1,5 @@
 {# The header include. Contain all the <head> section #}
+{% if not webdata.ajax %}
 {% include 'header.twig' %}
 
 			{% block notifications %}
@@ -54,3 +55,8 @@
         </section>
 
 {% include 'footer.twig' %}
+{% else %}
+	{% block content %}
+    {% endblock %}
+
+{% endif %}

@@ -12,6 +12,10 @@
         {
             selector : 'data-toggle'
         },
+        toolbar : 
+        {
+            selector : 'data-role="toolbar"'
+        },
         hover : 
         {
             selector : 'data-hover'
@@ -19,6 +23,10 @@
         imgbox : 
         {
             selector : 'data-img="box"'
+        },
+        progressForm: 
+        {
+            selector : 'data-progress'
         },
         mix : 
         {
@@ -86,7 +94,7 @@
                 }
                 else
                 {
-                    $(this).click(function(){$('#'+ $(this).attr(selector)).slideToggle();})
+                    $(this).click(function(evt){evt.stopImmediatePropagation(); $('#'+ $(this).attr(selector)).slideToggle();})
                 }
                 $('#'+ $(this).attr(selector)).hide();
             });
@@ -125,7 +133,45 @@
         {
             if($.fn.minimalect)
             {
-                $('select').minimalect();
+                $('select:visible').minimalect();
+            }
+        }
+    }
+    JsMoon.progressForm = {
+        init: function()
+        {
+            var selector = JsMoon.params.progressForm.selector;
+            var elements = $('[' + selector + ']');
+            if($.fn.progression)
+            {
+                elements.each(function(){
+                    var formName = $(this).attr('name');
+                    $(this).find('input, textarea, select').each(function(){
+                        if(!$(this).attr('data-progression'))
+                        {
+                            $(this).attr('data-progression','');
+                            var description = $('label[for="'+$(this).attr('id')+'"]').text();
+                            if(description)
+                            {
+                                $(this).attr('data-helper',description);
+                            }
+                        }
+                    });
+                    $(this).progression();   
+                });
+            }
+        }
+    }
+
+    JsMoon.toolbar = {
+        init: function()
+        {
+            var selector = JsMoon.params.toolbar.selector;
+            if(window.cbpTooltipMenu)
+            {
+                $('['+selector+']').each(function(){
+                    var menu = new cbpTooltipMenu( document.getElementById($(this).attr('id') ) )
+                });
             }
         }
     }
@@ -206,7 +252,7 @@
                 $('[' + selector + ']').mixitup({
                     layoutMode: 'list', // Start in list mode (display: block) by default
                     listClass: 'list', // Container class for when in list mode
-                    listEffects: ['fade','blur'], // List of effects ONLY for list mode
+                    listEffects: ['fade'], // List of effects ONLY for list mode
                     easing: 'snap'
                 });
             }
@@ -615,10 +661,12 @@ JsMoon.run = function()
     JsMoon.imgbox.init();
     JsMoon.formElementFormatter.init();
     JsMoon.notifications.run();
+    JsMoon.progressForm.init();
     JsMoon.date.run();
     JsMoon.markdown.init();
     JsMoon.ajaxForm.init();
     JsMoon.mix.init();
+    JsMoon.toolbar.init();
 }
 
 JsMoon.reload = function()
@@ -630,8 +678,10 @@ JsMoon.reload = function()
     JsMoon.formElementFormatter.init();
     JsMoon.hover.init();
     JsMoon.load.init();
+    JsMoon.progressForm.init();
     JsMoon.mix.init();
     JsMoon.ajaxForm.init();
+    JsMoon.toolbar.init();
 }
 
 })(jQuery);
