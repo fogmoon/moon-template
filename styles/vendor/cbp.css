@@ -224,6 +224,10 @@ left: 190px;
     }
 }
 
+tr.mix {
+    display: table-row!important;
+}
+
 /* reset  list style */
 *[data-role="toolbar"],
     *[data-role="toolbar"] ul {
@@ -238,7 +242,6 @@ left: 190px;
     border-bottom: 1px solid #CCC;
     padding: 0 2em;
     margin: 0;
-    text-transform: capitalize;
 }
 
 /* first level menu items */

@@ -315,6 +315,18 @@ section[role="article"]
     padding-bottom 30px
     border-bottom 2px solid primary_color
 
+table[role="rows"]
+    td
+        padding 10px 20px
+        margin-left 10px
+    tr+tr
+        border-top 1px solid transparize(primary_color,0.2)
+    tr:first-of-type
+        font-weight bold
+    tr td i,
+    tr td a > i
+        margin-right 10px
+
 *[role="separator"]
     font-size 1em
     color transparize(secondary_color,0.3)
