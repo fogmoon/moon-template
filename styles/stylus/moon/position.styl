@@ -231,7 +231,8 @@ a[data-type="clear-button"]
 
     &:before,
     &:after 
-        display tablecontent ""
+        display table
+        content ""
     &:after 
         clear both
     &:first-child 
@@ -393,12 +394,24 @@ form[data-align="labelled"]
         float right
     min-width 2*base_width        
 
+.radio-group
+    padding 4px 6px
+    margin 4px 24px 4px 4px
+    display inline-block
+    label
+        padding 0px !important
+        margin 0px !important
+        display inline-block !important
+        float left
+    input[type="radio"]
+        display inline-block
+        float right
 
 progress,
 *[data-type="progress"] 
     display: inline-block
-            -moz-box-sizing: border-box
-            box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
     width: 100%
     height: 20px
     padding: 0px
@@ -419,7 +432,7 @@ progress[value^='8']:not([value^='8.']):not([value='8']) span,
     width: 85%
 
 progress[value^='7']:not([value^='7.']):not([value='7']) span,
-*[data-type="progress"][value^='7':not([value^='7.']):not([value='7']) span
+*[data-type="progress"][value^='7']:not([value^='7.']):not([value='7']) span
     width: 75%
 
 progress[value^='6']:not([value^='6.']):not([value='6']) span,

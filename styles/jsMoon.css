@@ -8,28 +8,32 @@
 .horiz-anim-left--showed,
 .horiz-anim-left--showed *,
 .horiz-anim-left--hidden,
-.horiz-anim-left--hidden *
+.horiz-anim-left--hidden *,
+.horiz-anim-right,
+.horiz-anim-right--showed,
+.horiz-anim-right--showed *,
+.horiz-anim-right--hidden,
+.horiz-anim-right--hidden *
 {
-    -webkit-transition: all 1.2s ease 1;
-       -moz-transition: all 1.2s ease 1;
-         -o-transition: all 1.2s ease 1;
-            transition: all 1.2s ease 1;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+    position : relative;
 }
 
 .horiz-anim-left--showed
 {
-    position : initial;
+    left : initial;
+    right : initial;
+    opacity : 1;
 }
 
 .horiz-anim-left--hidden,
 .horiz-anim-left--hidden *
 {
-    position : relative;
-    left : -100px;
+    left : -50px;
     opacity : 0;
-    color : rgba(0,0,0,0.0);
-    background-color : rgba(0,0,0,0.0);
-    border-color : transparent !important;
 }
 
 /* 
@@ -38,41 +42,57 @@
  * to right (hidden) with fade transition
  * -------------------------------------
  */
-.horiz-anim-right,
-.horiz-anim-right--showed,
-.horiz-anim-right--showed *,
-.horiz-anim-right--hidden,
-.horiz-anim-right--hidden *
-{
-    position : relative;
-    -webkit-transition: all 1.2s ease 0;
-       -moz-transition: all 0.2s ease 0;
-         -o-transition: all 0.2s ease 0;
-            transition: all 0.2s ease 0;
-}
 
 .horiz-anim-right--showed
 {
-    right : 0px;
+    left : initial;
+    right : initial;
+    opacity : 1;
 }
 
 .horiz-anim-right--hidden,
 .horiz-anim-right--hidden *
 {
-    position : relative;
-    right : -100px;
+    left : 500px;
     opacity : 0;
-    color : rgba(0,0,0,0.0);
-    background-color : rgba(0,0,0,0.0);
-    border-color : transparent !important;
 }
 
-.--hidden 
+
+/*
+ * Flipper animations
+ */
+.cssanimations .flip--visible,
+.cssanimations .flip--hidden
 {
-    color : rgba(0,0,0,0.0);
-    background-color : rgba(0,0,0,0.0);
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
+.cssanimations .flip--visible {
+    -webkit-transform: rotateY(0deg);
+    -webkit-transform: rotateX(0deg);
+    -webkit-transform-origin-x: 50%;
+    -webkit-transform-origin-y: 50%;
+}
+
+.cssanimations .flip--hidden {
+    -webkit-transform: rotateY(90deg);
+    -webkit-transform: rotateX(90deg);
+    -webkit-transform-origin-x: 50%;
+    -webkit-transform-origin-y: 50%;
+}
+
+.e--hidden 
+{
+    display: none;
     opacity : 0;
-    border-color : transparent !important;
+}
+
+.e--showed 
+{
+    display: initial;
+    opacity : 1;
 }
 
 section[data-role="content"] .mix {
@@ -86,53 +106,53 @@ section[data-role="content"] .mix {
 }
 
 .percent{
-display: block;
-color: #fff;
-font-size: 12px;
-margin-left: 5px;
-height: auto;
-position: absolute;
-top: 2px;
+    display: block;
+    color: #fff;
+    font-size: 12px;
+    margin-left: 5px;
+    height: auto;
+    position: absolute;
+    top: 2px;
 }
 .triangle_right{
-width: 0px;
-height: 0px;
-border-style: solid;
-border-width: 7.5px 10px 7.5px 0;
-border-color: transparent rgba(255,255,255,.3) transparent transparent;
-display:block;
-position: absolute;
-left: -10px;
-top: 10px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 7.5px 10px 7.5px 0;
+    border-color: transparent rgba(255,255,255,.3) transparent transparent;
+    display:block;
+    position: absolute;
+    left: -10px;
+    top: 10px;
 }
 .triangle_left{
-width: 0px;
-height: 0px;
-border-style: solid;
-border-width: 7.5px 0 7.5px 10px;
-border-color: transparent transparent transparent rgba(255,255,255,.3);
-display:block;
-position: absolute;
-right: -10px;
-top: 10px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 7.5px 0 7.5px 10px;
+    border-color: transparent transparent transparent rgba(255,255,255,.3);
+    display:block;
+    position: absolute;
+    right: -10px;
+    top: 10px;
 }
 .tooltip p{
-color:white;
-margin-bottom:10px;
-font-size: 14px;
+    color:white;
+    margin-bottom:10px;
+    font-size: 14px;
 
 }
 .percentagebarinner{
-width: 0%;
-background: #FFF;
-height: 20px;
-background:#6EA5E1;
-position: relative;
+    width: 0%;
+    background: #FFF;
+    height: 20px;
+    background:#6EA5E1;
+    position: relative;
 
 }
 .percentagebar{
-width:100%;
-position:relative;
-background: #FFF;
-height:20px;
+    width:100%;
+    position:relative;
+    background: #FFF;
+    height:20px;
 }

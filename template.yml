@@ -28,6 +28,7 @@ css_includes:
     - "vendor/colorbox.css"
     - "vendor/code.css"
     - "vendor/minimalect.min.css"
+    - "vendor/nprogress.css"
     - "jsMoon.css"
     - "style.css"
 
@@ -45,7 +46,7 @@ js_includes:
     - "highlight.pack.js"
     - "Markdown.Converter.js"
     - "Markdown.Editor.js"
-    - "mixitup.min.js"
     - "Markdown.Sanitizer.js"
+    - "mixitup.min.js"
+    - "nprogress.js"
     - "moon.js"
-
