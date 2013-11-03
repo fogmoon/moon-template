@@ -127,6 +127,48 @@ button
         box-shadow none
         color transparize(background_color,0.6)
 
+
+*[data-type$="inv"],
+*[data-button$="inv"],
+*[data-display$="inv"]
+    background-color transparent
+    border  1px solid transparent
+    color transparize(secondary_color,0.5)
+    makeItMove(0.1s,all,linear)
+    position relative
+    &::before
+        makeItMove(0.1s,all,ease)
+        min-height 10px
+        min-width 10px
+        position absolute
+        content ''
+        background-color transparize(secondary_color,0.0)
+        border 1px solid transparent
+        border-radius   50%
+    &::before
+        left -20%
+        bottom (base_height/2px)
+    
+    &:hover
+        border 1px solid  transparize(secondary_color,0.1)
+        border-radius   2px
+        color transparize(secondary_color,0.6)
+        &::before
+            left 10%
+            background-color primary_color
+            border 1px solid primary_color
+        
+    &:active
+        border 1px solid transparent
+        makeItMove(0.1s,all,linear)
+        color transparent
+        &::before
+            makeItMove(0.1s,all,linear)
+            left 80%
+            background-color transparize(secondary_color,0.0)
+            border 1px solid transparent
+        
+
 /////////////////////////////////////////////////////////
 //                          Fields                       //
 /////////////////////////////////////////////////////////

@@ -139,13 +139,14 @@
 
 	JsMoon.formElementFormatter = {
 		init: function()
-		{
-			if ($.fn.minimalect)
-			{
-				$('select:visible').minimalect();
-			}
+		{/*
+		 if ($.fn.minimalect)
+		 {
+		 $('select:visible').minimalect();
+		 }*/
 		}
-	}
+	};
+
 	JsMoon.progressForm = {
 		init: function()
 		{
@@ -268,8 +269,7 @@
 					listEffects: ['fade'], // List of effects ONLY for list mode
 					easing: 'snap',
 					onMixEnd: function() {
-						console.log("callback mix!");
-						JsMoon.reload();
+						JsMoon.domModified();
 					}
 				});
 			}
@@ -489,7 +489,7 @@
 						target: element.attr(target),
 						content: contentUrl,
 						position: targetPosition
-					}, contentUrl, "#" + contentUrl );
+					}, contentUrl, "#" + contentUrl);
 
 				switch (targetPosition) {
 					case 'afterLast':
@@ -530,7 +530,6 @@
 						JsMoon.progress.start();
 						event.stopImmediatePropagation();
 						exection($(this).children('option:selected[' + target + ']').first());
-						console.log("change select !");
 					});
 				}
 				else
@@ -540,7 +539,6 @@
 						JsMoon.progress.start();
 						event.stopImmediatePropagation();
 						exection($(this));
-						console.log("click select !");
 					});
 				}
 			});
@@ -711,11 +709,22 @@
 							doy: 4  // The week that contains Jan 4th is the first week of the year.
 						}
 					});
+					
 					$('[data-type="date"]').each(function()
 					{
 						var localLang = moment($(this).attr('data-date') || $(this).html());
 						localLang.lang('fr');
-						$(this).html(localLang.fromNow());
+						if ($(this).attr('data-upper') !== undefined)
+						{
+							$(this).html(function(){
+								var t = localLang.fromNow();
+								return t.charAt(0).toUpperCase() + t.slice(1);
+							});
+						}
+						else
+						{
+							$(this).html(localLang.fromNow());
+						}
 					});
 
 					$('[data-type="age"]').each(function()
@@ -762,6 +771,17 @@
 		JsMoon.mix.init();
 		JsMoon.ajaxForm.init();
 		JsMoon.toolbar.init();
+	};
+
+	/**
+	 * @todo Maybe we can attach this function to an
+	 * dom event with Observer pattern.
+	 */
+	JsMoon.domModified = function()
+	{
+		JsMoon.toggle.init();
+		JsMoon.hover.init();
+		JsMoon.load.init();
 	};
 
 })(jQuery);

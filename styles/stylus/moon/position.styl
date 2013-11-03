@@ -186,6 +186,28 @@ body > section[data-display="monobox"]
     margin-left 1%
     margin-right 1%
 
+aside[data-role="icon-left-side"]
+    display inline-block
+    height 100%
+    font-size 2.7em
+    min-width 20%
+    text-align right
+    margin-right 10px
+    &+*[data-role="right-side"]
+        display inline-block
+        min-width 75%
+        text-align left
+        h2, h3
+            width 100%
+        h3
+            font-weight 600
+
+*[line-down]
+    line-height 0px
+
+*[data-upper]:first-letter
+    text-transform capitalize
+
 /////////////////////////////////////////////////////////
 //                          Buttons                    //
 /////////////////////////////////////////////////////////
@@ -203,12 +225,12 @@ button[data-width="input"]
 *[data-button="simple"],
 *[data-button="simple-inv"]
     font-weight bold
-    padding 6px 30px
-    margin 4px
     text-align center
     font-size 1em
     min-height base_height
     line-height base_height
+    padding 6px 30px
+    margin 4px
 
 
 button,
