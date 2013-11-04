@@ -331,13 +331,15 @@ form[data-type="smart-input"]
         border-bottom input_border_width dashed transparize(old_p,0.5)
 
     *[type="submit"]
-        padding 4px 0px
         background-color transparize(old_p,0.9)
         color monochrome(old_p)
         font-size 1.2rem
         height auto
-        float none
         border input_border_width dashed transparent
+
+    &:not([data-align="horizontal"]) *[type="submit"]
+        padding 4px 0px
+        float none
         
     select:focus,
     textarea:focus,
@@ -362,6 +364,8 @@ table[role="rows"]
     td
         padding 10px 20px
         margin-left 10px
+        a:not([data-load-template]):not([href])
+            color transparize(secondary_color,0.8)
     tr+tr
         border-top 1px solid transparize(primary_color,0.2)
     tr:first-of-type

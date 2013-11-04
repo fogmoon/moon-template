@@ -374,7 +374,7 @@
 				var elt = $form.find('[type="submit"]');
 				elt.find('i.icon-spin').fadeOut().removeClass('icon-refresh icon-spin').addClass('icon-ok').fadeIn();
 				elt.removeClass('loading').addClass('success');
-				$form.slideUp();
+				//$form.slideUp();
 				if (responseText == 'ok' || parseInt(responseText) > 0)
 				{
 					var cbs = elt.attr(JsMoon.params.ajaxForm.success);
