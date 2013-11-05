@@ -363,6 +363,7 @@
 			function showRequest(formData, jqForm, options) {
 				// var formElement = jqForm[0]; 
 				var elt = jqForm.find('[type="submit"]');
+
 				if (!elt.find('i').length)
 				{
 					elt.html(elt.html() + '<i class="icon-refresh icon-spin"></i> ').addClass('loading');
@@ -372,6 +373,10 @@
 
 			function showResponse(responseText, statusText, xhr, $form) {
 				var elt = $form.find('[type="submit"]');
+				if ($form.attr("data-ajax-form") != undefined)
+				{
+				    elt = $form;
+				}
 				elt.find('i.icon-spin').fadeOut().removeClass('icon-refresh icon-spin').addClass('icon-ok').fadeIn();
 				elt.removeClass('loading').addClass('success');
 				//$form.slideUp();
@@ -403,7 +408,12 @@
 
 				targetTrigger.each(function()
 				{
+				
 					var form = $(this).parents('form').first();
+					if($(this).is("form"))
+					{
+					    form = $(this);
+					}
 					var elt = $('<input type="hidden" name="ajaxForm" value="true"/>');
 					form.append(elt);
 					form.ajaxForm(
@@ -411,6 +421,16 @@
 							beforeSubmit: showRequest,
 							success: showResponse
 						});
+					form.submit(function(evt)
+					    {
+						evt.preventDefault();
+						form.ajaxSubmit({
+							beforeSubmit: showRequest,
+							success: showResponse
+						});	
+						evt.stopImmediatePropagation();
+						return false;
+					    });
 
 				});
 			}

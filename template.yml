@@ -23,7 +23,7 @@ img_path: "img/"
 js_path: "js/"
 
 css_includes:
-    - "vendor/font-awesome.min.css"
+    - "vendor/moon.css" #icons by icomoon
     - "vendor/cbp.css"
     - "vendor/colorbox.css"
     - "vendor/code.css"
