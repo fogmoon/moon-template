@@ -105,15 +105,17 @@ button
     font-weight bold
     color primary_color
     text-shadow none
-    border solid 1px transparent
-    border-radius(0px)
+    border solid 1px transparize(secondary_color,0.05)
+    border-radius(3px)
     box-shadow none
+    padding 8px
     background-color background-color
     background-image none
     filter none 
     makeItMove(0.1s,all,linear)
 
     &:hover
+        border solid 1px transparize(secondary_color,0.1)
         background background-color
         color hardize(primary_color,20%)
         box-shadow none
@@ -128,9 +130,9 @@ button
         color transparize(background_color,0.6)
 
 
-*[data-type$="inv"],
-*[data-button$="inv"],
-*[data-display$="inv"]
+*[data-type$="inv"].ball,
+*[data-button$="inv"].ball,
+*[data-display$="inv"].ball
     background-color transparent
     border  1px solid transparent
     color transparize(secondary_color,0.5)
@@ -383,8 +385,10 @@ table[role="rows"]
     text-align center
 
 *[role="line"]
+    display block
     min-height  10px
     padding-bottom 10px
+    margin-bottom 10px
     border-bottom   1px solid transparize(secondary_color,0.1)
 
 /////////////////////////////////////////////////////////
