@@ -141,22 +141,23 @@ button
     &::before
         makeItMove(0.1s,all,ease)
         min-height 10px
-        min-width 10px
+        min-width 3px
         position absolute
         content ''
         background-color transparize(secondary_color,0.0)
         border 1px solid transparent
-        border-radius   50%
+        border-radius   0%
     &::before
         left -20%
-        bottom (base_height/2px)
+        top 0px
+        bottom (0px)
     
     &:hover
         border 1px solid  transparize(secondary_color,0.1)
         border-radius   2px
         color transparize(secondary_color,0.6)
         &::before
-            left 10%
+            left 0px
             background-color primary_color
             border 1px solid primary_color
         
@@ -339,9 +340,15 @@ form[data-type="smart-input"]
         height auto
         border input_border_width solid transparent
 
-    &:not([data-align="horizontal"]) *[type="submit"]
-        padding 4px 0px
-        float none
+    &:not([data-align="horizontal"])
+        span
+            margin 5px 0px
+            display block
+        *[type="submit"]
+            padding 4px 0px
+            margin 10px 0px
+            float none
+            clear both
         
     select:focus,
     textarea:focus,
@@ -407,7 +414,7 @@ header
             color transparize(secondary_color,0.255555)
 
 *[data-style="light"]
-    color transparize(secondary_color,0.255555)
+    color transparize(secondary_color,0.25)
 a[data-style="light"]:hover
     color transparize(secondary_color,0.355555)
     
@@ -421,4 +428,16 @@ a[data-style="light-less"]:hover
 a[data-style="light-more"]:hover
     color transparize(secondary_color,0.255555)
 
+a[data-button="bordered"]
+    color transparize(secondary_color,0.7)
+    /*border 1px solid softize(primary_color,20%)*/
+    padding 1px 5px
+    text-align center
+    min-height 25px
+    line-height 25px
+    border-radius 3px
 
+[class*="icon-"]
+    margin 0px 2px
+    position relative
+    top 2px

@@ -22,6 +22,7 @@ h3,
 h4
     margin 10px auto
     line-height normal
+    font-weight 400
 
 li
     list-style none
@@ -34,6 +35,7 @@ h3
     font-size 1.2em
 h4
     font-size 1em
+    line-height 25px
 h5
     font-size 0.8em
 h6
@@ -89,7 +91,7 @@ section[data-align="center"]
         display -webkit-flex
         display -moz-flex
         display flex
-        margin 10px 30px
+        margin 10px 10px
         *[data-align="center"]            
             display -webkit-flex
             display -moz-flex
@@ -114,13 +116,13 @@ article
     h2
         font-size 1.2em
     h3
-        font-size 1em
+        font-size 1.1em
     h4
-        font-size 0.9em
+        font-size 1em
     h5
-        font-size 0.8em
+        font-size 0.9em
     h6
-        font-size 0.7em
+        font-size 0.8em
 
 
 /////////////////////////////////////////////////////////
@@ -189,7 +191,6 @@ body > section[data-display="monobox"]
 aside[data-role="icon-left-side"]
     display inline-block
     height 100%
-    vertical-align top
     font-size 2.7em
     min-width 20%
     text-align right
@@ -224,12 +225,12 @@ button[data-width="input"]
 
 *[data-button="simple"],
 *[data-button="simple-inv"]
-    font-weight bold
-    text-align center
-    font-size 1em
+    font-weight 500
+    /*text-align center*/
+    font-size 1.2em
     min-height base_height
     line-height base_height
-    padding 6px 30px
+    padding 6px 10px
     margin 4px
 
 
@@ -284,6 +285,7 @@ form
     select,
     textarea,
     button,
+    .radio-group-main,
     input[type="text"],
     input[type="password"],
     input[type="datetime"],
@@ -311,12 +313,14 @@ form
             
 form
     label ~ input,
+    label ~ .radio-group-main,
     label ~ select ~ div > input,
     label ~ select 
         float right
         clear right
         display block
     label > input,
+    label > .radio-group-main,
     label > select,
     label > div > input
         margin-left input_margin_right*4
@@ -334,6 +338,7 @@ form
 form[data-align="horizontal"]
     input,
     button,
+    .radio-group-main,
     textarea,
     select
         width   auto
@@ -347,7 +352,8 @@ form[data-align="horizontal"]
         display inline-block
         
 form[data-align="vertical"]
-    input,
+  input,
+  .radio-group-main,
     textarea,
     select,
     label
@@ -364,6 +370,7 @@ form[data-align="vertical"]
 form[data-align="mixed"]
     label ~ input,
     label ~ select,
+    label ~ .radio-group-main,
     label ~ textarea,
     button[type="submit"],
     select + div.minict_wrapper,
@@ -431,6 +438,7 @@ form[data-align="labelled"]
     input[type="radio"]
         display inline-block
         float right
+        height base_height
 
 progress,
 *[data-type="progress"] 
@@ -511,6 +519,13 @@ figure[data-size="medium"]
         padding 10px
         max-height 100px
         width auto
+
+/////////////////////////////////////////////////////////
+//                      Modifiers                      //
+/////////////////////////////////////////////////////////
+
+.big-item
+    font-size 2em
 
 /////////////////////////////////////////////////////////
 //                     Navigation                      //

@@ -25,5 +25,19 @@
     {% block userScripts %}
 
     {% endblock %}
+
+    {% if reload_url %}
+    <script>
+    $(document).ready(function()
+    {
+	if(window.location.hash.search("#{{ baseurl }}") == 0)
+	{
+	    var toGo = window.location.hash.replace("#","");
+	    JsMoon.load.ajaxInner( $("section[data-role='content']"), toGo);
+	}
+    });
+    </script>
+
+    {% endif %}
 	</body>
 </html>

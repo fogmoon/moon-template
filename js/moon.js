@@ -596,7 +596,7 @@
 			var elements = $('[' + selector + ']');
 			menuElement = $('#' + $(elements).attr(menu));
 			menuElement.first().addClass('cbp-spmenu').addClass('cbp-spmenu-vertical').addClass('cbp-spmenu-left');
-			menuElement.append('<a data-role="close-push"><i class="icon-arrow-left"></i> Back</a>');
+			menuElement.append('<a data-role="close-push"><i class="icon-reorder"></i> Menu</a>');
 			elements.each(function()
 			{
 				$(this).click(function() {
@@ -627,7 +627,7 @@
 				var button = $(this);
 				menuElement = $('#' + button.attr(menu));
 				menuElement.first().addClass('cbp-spmenu').addClass('cbp-spmenu-vertical').addClass('cbp-spmenu-left');
-				menuElement.append('<a data-role="close-side"><i class="icon-arrow-left"></i> Back</a>');
+				menuElement.append('<a data-role="close-side"><i class="icon-reorder"></i> Menu</a>');
 				button.click(function() {
 					menuElement = $('#' + $(this).attr(menu));
 					$(this).toggleClass('active');

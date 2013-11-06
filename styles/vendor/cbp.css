@@ -9,7 +9,7 @@ position: fixed;
 
 .cbp-spmenu h3 {
 color: #afdefa;
-       font-size: 1.9em;
+       font-size: 1.7em;
 padding: 20px;
 margin: 0;
         font-weight: 300;
@@ -41,7 +41,7 @@ width: 240px;
 
 aside[data-display="column"]
 {
-    width: 210px;
+    width: 230px;
 }
 
 .cbp-spmenu-vertical
