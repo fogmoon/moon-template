@@ -416,11 +416,6 @@
 					}
 					var elt = $('<input type="hidden" name="ajaxForm" value="true"/>');
 					form.append(elt);
-					form.ajaxForm(
-						{
-							beforeSubmit: showRequest,
-							success: showResponse
-						});
 					form.submit(function(evt)
 					    {
 						evt.preventDefault();
